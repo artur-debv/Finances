@@ -1,0 +1,92 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tab-container {
+  max-width: 600px;
+  margin: auto;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #333;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-button.active {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.notice {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.notice strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.icon {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.link_row {
+  color: black;
+}
+
+img {
+  margin: 0 auto;
+}
+
+header {
+  background: #3C3C3C;
+
+  padding: 2rem 0 11rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.bx-left-arrow-alt:before {
+  content: "\eb33";
+  margin-left: 20px;
+  color: white;
+}

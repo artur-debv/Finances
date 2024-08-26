@@ -1,0 +1,8 @@
+@media (max-width: 900px) {
+    .float-button{
+        position: fixed;
+        bottom: 77px;
+        right: 40px;
+    }
+}
+   

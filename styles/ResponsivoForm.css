@@ -1,0 +1,9 @@
+@media (max-width: 900px) {
+   span{
+    display: none;
+   }
+   #buttonDiv{
+    margin-left: 70px;
+   }
+  }
+  

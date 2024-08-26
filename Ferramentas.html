@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferramentas Financeiras</title>
+  <link rel="stylesheet" href="styles/Ferramentas.css">
+  <link rel="stylesheet" href="styles/Currency.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+/>
+</head>
+
+<body>
+  <header class="darkmode">
+    <div class="icon">
+      <a class="link_row" href="index.html"><i class='bx bx-left-arrow-alt'></i></a>
+      <img src="./assets/logo.svg" alt="logo dev.finance$" />
+
+    </div>
+  </header>
+  <div class="tab-container">
+    <div class="tabs">
+      <button class="tab-button active" onclick="openTab('preview')">Conversor de moedas</button>
+      <button class="tab-button" onclick="openTab('markup')">Calculadora Juros compostos</button>
+    </div>
+    <div id="preview" class="tab-content active">
+      <div class="container">
+        <main>
+          <h1>Currency Converter</h1>
+    
+          <div class="controls" id="controls">
+            <div class="control">
+              <button id="base" data-drawer>USD</button>
+              <input type="number" id="base-input" value="0" min="0" step="0.01" />
+            </div>
+            <div class="control">
+              <button id="target" data-drawer>EUR</button>
+              <input type="number" id="target-input" value="0" readonly />
+            </div>
+            <button class="swap-btn" id="swap-btn">
+              <span class="material-symbols-outlined"> sync_alt </span>
+            </button>
+          </div>
+    
+          <div class="exchange-rate">
+            <h5>Exchange Rate</h5>
+            <span id="exchange-rate"></span>
+          </div>
+    
+          <div class="drawer" id="drawer">
+            <div class="title">
+              <button id="dismiss-btn">
+                <span class="material-symbols-outlined"> west </span>
+              </button>
+              <h3>Select Currency</h3>
+            </div>
+            <div class="search">
+              <input type="search" id="search" placeholder="Search" />
+            </div>
+            <ul class="currency-list" id="currency-list"></ul>
+          </div>
+        </main>
+      </div>
+  </div>
+  <div id="markup" class="tab-content">
+    <pre><code>&lt;div class="notice"&gt;...&lt;/div&gt;</code></pre>
+  </div>
+  </div>
+  <script src="scripts/Ferramentas/Ferramentas.js"></script>
+  <script src="scripts/ConvertCurrency/ConvertCurrency.js"></script>
+</body>
+
+</html>

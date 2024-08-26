@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.img_history{
+    width: 20px;
+}
+
+.a_history{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: black;
+    font-size: 14px;
+}
+
+
+
+#users{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#userss{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#usersss{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.Infos{
+    color: white;
+}
+

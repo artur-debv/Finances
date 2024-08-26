@@ -1,0 +1,66 @@
+/* Global */
+*,
+*:before,
+*:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --background: #f0f2f5;
+    --background-modal: #f0f2f5;
+
+    --link-light-green: #71D59A;
+    /*--link-normal-green: #000;*/
+    --link-dark-green: #239954;
+
+
+    --light-green: #282828;
+    --normal-green: #2ECC71;
+    --dark-green: #294D38;
+
+    --light-red: #EC7171;
+    --normal-red: #E83F5B;
+    --dark-red: #693232;
+
+    --light-blue: #969cb3;
+    /*--normal-blue: #000;*/
+    --dark-blue: #363f5f;
+
+    --light-green-syphrao: #71D59A;
+    --normal-green-syphrao: #2ECC71;
+    --dark-green-syphrao: #294D38;
+
+    --money-green: #12a454;
+    --money-red: #e92929;
+
+    --color-modal-overlay: rgba(0, 0, 0, 0.7);
+    --shadow: #999;
+}
+body {
+    background: var(--background);
+    font-family: 'Poppins', sans-serif;
+}
+html {
+    font-size: 93.75%; /*15px*/
+}
+
+.sr-only {
+    width: 1px;
+    height: 1px;
+
+    border-width: 0;
+
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.container {
+    width: min(90vw, 800px);
+    margin: 3rem auto 0;
+}

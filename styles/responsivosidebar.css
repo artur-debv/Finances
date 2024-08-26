@@ -1,0 +1,11 @@
+@media (max-width: 900px) {
+    #sidebar {
+        display: none; /* Esconde o sidebar */
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between; /* Alinha a logo e a foto de perfil lado a lado */
+        align-items: center; /* Centraliza verticalmente */
+    }
+}

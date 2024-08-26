@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.44.4",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2",
+    "firebase": "^10.12.2",
+    "google-auth-library": "^9.7.0",
+    "google-spreadsheet": "^4.1.2",
+    "http-proxy-middleware": "^3.0.0",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

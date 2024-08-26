@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="language" content="pt-BR" />
+    <title>Finance$</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-language" content="pt-BR" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles/sidebar.css" />
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/sidebar.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/responsivity.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+    <link rel="stylesheet" href="./styles/form-modal.css" />
+    <link rel="stylesheet" href="./styles/float-button.css" />
+    <link rel="stylesheet" href="./styles/scrollbar.css" />
+    <link rel="stylesheet" href="./styles/toast.css" />
+    <link rel="stylesheet" href="styles/responsivoinput.css" />
+    <link rel="stylesheet" href="./styles/animations.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="styles/responsivobutton.css" />
+    <link rel="stylesheet" href="styles/responsivosidebar.css">
+    <link rel="stylesheet" href="styles/inputSearchs.css">
+    <link rel="stylesheet" href="/styles/img_history.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap"
+        rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="mode">
+        <nav id="sidebar">
+            <div id="sidebar_content">
+                <div id="user">
+                    <img src="" id="user_avatar" alt="Avatar" />
+
+                    <p id="user_infos">
+                        <span class="item-description"> </span>
+                    </p>
+                </div>
+                <div>
+                    <div id="users">
+                        <a href="Histórico.html" target="_self" class="a_history"><img class="img_history"
+                                src="/assets/Histórico.png" alt="Avatar" />Histórico</a>
+                    </div>
+                    <div id="userss">
+                        <a href="Investimentos.html" target="_self" class="a_history"><img class="img_history"
+                                src="assets/investimentos.png" alt="Avatar" />Investimentos</a>
+                    </div>
+                    <div id="userss">
+                        <a href="Ferramentas.html" target="_self" class="a_history"><img class="img_history"
+                                src="/assets/ferramentas.png" alt="Avatar" />Ferramentas</a>
+                    </div>
+                </div>
+                <ul id="side_items"></ul>
+                <button id="open_btn">
+                    <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            <div id="logout">
+                <button id="logout_btn" onclick="disconnectUser()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="item-description"> Sair </span>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <main>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <div class="darkmode">
+            <header>
+                <div class="icon">
+                    <img src="./assets/logo.svg" alt="logo dev.finance$" />
+                    <div class="icons_account">
+                        <i id="mode_icon" class="fa-solid fa-moon"></i>
+                    </div>
+                </div>
+            </header>
+            <main class="container">
+                <section id="balance">
+                    <h2 class="sr-only">Balanço</h2>
+                    <div class="card">
+                        <h3>
+                            <span>Entradas</span>
+                            <img src="./assets/income.svg" alt="Imagem de entradas" />
+                        </h3>
+                        <p id="incomeDisplay">R$ 0,00</p>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            <span>Saídas</span>
+                            <img src="./assets/expense.svg" alt="Imagem de saídas" />
+                        </h3>
+                        <p id="expenseDisplay">R$ 0,00</p>
+                    </div>
+                    <div class="card total">
+                        <h3>
+                            <span>Total</span>
+                            <img src="./assets/total.svg" alt="Imagem de total" />
+                        </h3>
+                        <p id="totalDisplay">R$ 0,00</p>
+                    </div>
+                </section>
+                <section id="transaction">
+                    <h2 class="sr-only">Transações</h2>
+                    <!-- Substituído pelo FloatButton -->
+                    <!-- <a href="#" onclick="Modal.open()" class="button new">+ Nova Transação</a> -->
+                    <div class="containers">
+                        <input type="text" id="input_Search" placeholder="Digite sua Transação">
+                        <button id="button_search" onclick="search()">Pesquisar</button>
+                    </div>
+
+                    <table id="data-table">
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Valor</th>
+                                <th>Data</th>
+                                <th>Deletar Despesa</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbodys"></tbody>
+                    </table>
+                </section>
+            </main>
+            <div class="modal-overlay">
+                <div class="modal">
+                    <div id="form" onsubmit="Form.submit(event)">
+                        <h2>Nova Transação</h2>
+                        <form action="https://api.sheetmonkey.io/form/jxtYmjVnUoWL7zCNeE7XjQ" method="post">
+                            <div class="input-group">
+                                <label for="description" class="sr-only">Descrição</label>
+                                <input type="text" id="description" name="description" placeholder="Description" />
+                            </div>
+
+                            <div class="input-group">
+                                <label for="amount" class="sr-only">Valor</label>
+                                <input type="number" id="amount" name="amount" placeholder="0,00" step="0.01" />
+                            </div>
+
+                            <small class="help-for-modal">Use o sinal - (negativo) para despesas e , (vírgula) para
+                                casas decimais</small>
+
+                            <div class="input-group">
+                                <label for="date" class="sr-only">Data</label>
+                                <input type="date" id="date" name="date" />
+                            </div>
+
+                            <div class="input-group actions">
+                                <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                                <button class="button_submit" type="submit">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="toast">
+                <div class="img">
+                    <h1>×</h1>
+                </div>
+                <div class="description">Por favor, preencha todos os campos!</div>
+            </div>
+            <a href="#" onclick="Modal.open()" class="float-button">
+                <img src="./assets/float-plus.svg" alt="Adicionar" width="16px" />
+            </a>
+
+            <!--Scripts-->
+            <script src="./scripts/index.js" type="text/javascript"></script>
+            <script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
+            <script src="./scripts/JsTheme/Theme.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/file-saver"></script>
+            <script src="scripts/Sidebar/sidebar.js"></script>
+            <script src="scripts/DisconnectUsers/DisconnectUser.js"></script>
+            <script src="scripts/Excel/AddTaskExcel.js"></script>
+            <script src="scripts/Search/Search.js"></script>
+           <script src="Form.html"></script>
+            <script src="scripts/Index/index.js"></script>
+            <script src="https://accounts.google.com/gsi/client" async></script>
+            <script src="https://apis.google.com/js/platform.js" async defer></script>
+            <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+           
+
+        </div>
+    </main>
+</body>
+
+</html>

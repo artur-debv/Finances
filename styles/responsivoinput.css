@@ -1,0 +1,6 @@
+@media (max-width: 900px) {
+  input[type="date"] {
+    background-color: white;
+    color: black;
+  }
+}

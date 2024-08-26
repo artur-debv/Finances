@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invesment</title>
+    <link rel="stylesheet" href="styles/Investimentos.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/form-modal.css">
+</head>
+
+<body>
+    <header class="darkmode">
+        <div class="icon">
+            <a class="link_row" href="index.html"><i class='bx bx-left-arrow-alt'></i></a>
+            <img src="./assets/logo.svg" alt="logo dev.finance$" />
+
+        </div>
+    </header>
+    <section id="transaction">
+        <div class="containers">
+            <input type="text" id="input_Search" placeholder="Digite sua Transação">
+            <button id="button_search" onclick="search()">Pesquisar</button>
+        </div>
+
+
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Tipo de Investimento</th>
+                    <th>Data de Compra</th>
+                    <th>Deletar Investimento</th>
+                </tr>
+            </thead>
+            <tbody class="tbodys"></tbody>
+            <a href="#" onclick="Modal.open()" class="float-button">
+                <img src="./assets/float-plus.svg" alt="Adicionar" width="16px" />
+            </a>
+            <div class="modal-overlay">
+                <div class="modal">
+                    <div id="form" onsubmit="Form.submit(event)">
+                        <h2>Novo Investimento</h2>
+                        <form action="https://api.sheetmonkey.io/form/jxtYmjVnUoWL7zCNeE7XjQ" method="post">
+                            <div class="input-group">
+                                <select id="tipoInvestimento" name="tipoInvestimento">
+                                    <option value="" disabled selected>Selecione um tipo de investimento</option>
+                                    <option value="acoes">Ações</option>
+                                    <option value="fundosImobiliarios">Fundos Imobiliários</option>
+                                    <option value="criptomoedas">Criptomoedas</option>
+                                    <option value="rendaFixa">Renda Fixa</option>
+                                    <option value="tesouroDireto">Tesouro Direto</option>
+                                    <option value="etfs">ETFs</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="amount" class="sr-only">Valor do Investimento</label>
+                                <input type="number" id="amount" name="amount" placeholder="0,00" step="0.01" />
+                            </div>
+
+                            <small class="help-for-modal"></small>
+
+                            <div class="input-group">
+                                <label for="date" class="sr-only">Data</label>
+                                <input type="date" id="date" name="date" />
+                            </div>
+
+                            <div class="input-group actions">
+                                <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                                <button class="button_submit" type="submit">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </table>
+    </section>
+    <script src="scripts/AddInvest/AddInvest.js"></script>
+    <script src="scripts/SearchInvest/Search.js"></script>
+</body>
+
+</html>

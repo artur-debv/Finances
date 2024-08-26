@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/Form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="assets/user.png" type="image/x-icon">
+    <link rel="stylesheet" href="/styles/ResponsivoForm.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="modes">
+        <div class="wrapper">
+            <!----------------------------- Form box ----------------------------------->
+            <div class="form-box">
+                <!------------------- login form -------------------------->
+                <div class="login-container" id="login">
+                    <div class="top">
+                        <header>
+                            <div class="icon">
+                                <img src="./assets/logo.svg" alt="logo dev.finance$" />
+                                <i id="mode_icon" class="fa-solid fa-moon"></i>
+                            </div>
+                        </header>
+                        <span>Não tem uma conta? <a href="#" onclick="register()">Cadastra-se</a></span>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="nome do usuário ou E-mail">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" placeholder="Senha">
+                        <h2 class="h2_information"></h2>
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="submit" class="submit" value="Entrar">
+                        <div class="div_icon"><span>------------------------</span> OU
+                            <span>------------------------</span>
+                        </div>
+                        <div id="buttonDiv"></div>
+                    </div>
+                    <!--
+                    <div class="two-col">
+                        <div class="one">
+                            <input type="checkbox" id="login-check">
+                            <label for="login-check">Lembrar de mim</label>
+                        </div>
+                        <div class="two">
+                            <label><a href="#">Esqueceu sua senha ?</a></label>
+                        </div>
+                    </div>
+                  -->
+                </div>
+                <!------------------- registration form -------------------------->
+                <div class="register-container" id="register">
+                    <div class="top">
+                        <span>Já tem uma conta? <a href="#" onclick="login()">Fazer login</a></span>
+                    </div>
+                    <div class="two-forms">
+                        <div class="input-box">
+                            <input type="text" class="input-field" placeholder="Primeiro nome">
+                            <i class="bx bx-user"></i>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" class="input-field" placeholder="Último nome">
+                            <i class="bx bx-user"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Email">
+                        <i class="bx bx-envelope"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" placeholder="Senha">
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="submit" class="submit" value="Registrar">
+                    </div>
+                    <div class="two-col">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pre id="output"></pre>
+        <script src="scripts/Form/Form.js"></script>
+        <script src="https://accounts.google.com/gsi/client" async></script>
+        <script type="module">
+            import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/+esm';
+    
+            const supabaseUrl = 'https://wvnovbubeajokzignabi.supabase.co';
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2bm92YnViZWFqb2t6aWduYWJpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE3Mzc0MzcsImV4cCI6MjA3MzEzNDM3fQ.zv5JXOAoTR6ivRcycWx6eOtV7uLLqIuxjQZX9jjMwvM';
+            const supabase = createClient(supabaseUrl, supabaseKey);
+    
+            async function addUser(user_id, Token) {
+                try {
+                    const { data, error } = await supabase
+                        .from('users')
+                        .insert([{ user_id, Token }]);
+    
+                    if (error) {
+                        console.error('Erro ao inserir dados:', error);
+                        document.getElementById('output').textContent = `Erro ao inserir dados: ${error.message}`;
+                    } else {
+                        console.log('Dados inseridos:', data);
+                        document.getElementById('output').textContent = 'Dados inseridos com sucesso';
+                    }
+                } catch (error) {
+                    console.error('Erro ao conectar ao Supabase:', error);
+                    document.getElementById('output').textContent = `Erro ao conectar ao Supabase: ${error.message}`;
+                }
+            }
+    
+            async function testConnection() {
+                try {
+                    const { data, error } = await supabase
+                        .from('users')
+                        .select('*');
+    
+                    if (error) {
+                        console.error('Erro ao buscar dados:', error);
+                        document.getElementById('output').textContent = `Erro ao buscar dados: ${error.message}`;
+                    } else {
+                        console.log('Dados recebidos:', data);
+                        document.getElementById('output').textContent = `Dados recebidos: ${JSON.stringify(data, null, 2)}`;
+                    }
+                } catch (error) {
+                    console.error('Erro ao conectar ao Supabase:', error);
+                    document.getElementById('output').textContent = `Erro ao conectar ao Supabase: ${error.message}`;
+                }
+            }
+    
+            async function handleCredentialResponse(response) {
+                const jwtToken = response.credential;
+                localStorage.setItem('jwtToken', jwtToken);
+    
+                const decodedToken = parseJwt(jwtToken);
+    
+                // Salvar token no Supabase
+                await addUser(decodedToken.sub, jwtToken);
+    
+                // Redirecionar para a página index.html com informações como parâmetros de query string
+                const queryString = "?name=" + encodeURIComponent(decodedToken.name) +
+                    "&email=" + encodeURIComponent(decodedToken.email) +
+                    "&picture=" + encodeURIComponent(decodedToken.picture);
+                window.location.href = "index.html" + queryString;
+            }
+    
+            function parseJwt(token) {
+                const base64Url = token.split('.')[1];
+                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+    
+                return JSON.parse(jsonPayload);
+            }
+    
+            window.onload = function () {
+                google.accounts.id.initialize({
+                    client_id: "647322329932-g0tfojd1a4mfhimglfrn478lge1h0rkq.apps.googleusercontent.com",
+                    callback: handleCredentialResponse
+                });
+                google.accounts.id.renderButton(
+                    document.getElementById("buttonDiv"),
+                    { theme: "outline" }
+                );
+                google.accounts.id.prompt(); // also display the One Tap dialog
+            }
+    
+            // Funções para alternar entre login e registro
+            function login() {
+                document.getElementById("login").style.left = "4px";
+                document.getElementById("register").style.right = "-520px";
+                document.getElementById("loginBtn").className += " white-btn";
+                document.getElementById("registerBtn").className = "btn";
+                document.getElementById("login").style.opacity = 1;
+                document.getElementById("register").style.opacity = 0;
+            }
+    
+            function register() {
+                document.getElementById("login").style.left = "-510px";
+                document.getElementById("register").style.right = "5px";
+                document.getElementById("loginBtn").className = "btn";
+                document.getElementById("registerBtn").className += " white-btn";
+                document.getElementById("login").style.opacity = 0;
+                document.getElementById("register").style.opacity = 1;
+            }
+    
+            // Função para alternar entre modos claro e escuro
+            document.addEventListener("DOMContentLoaded", () => {
+                const mode = document.getElementById("mode_icon");
+                const form = document.querySelector(".modes");
+    
+                function setTheme(theme) {
+                    if (theme === "dark") {
+                        mode.classList.remove("fa-moon");
+                        mode.classList.add("fa-sun");
+                        form.classList.add("dark");
+                    } else {
+                        mode.classList.remove("fa-sun");
+                        mode.classList.add("fa-moon");
+                        form.classList.remove("dark");
+                    }
+                }
+    
+                function toggleTheme() {
+                    const currentTheme = localStorage.getItem("theme") || "light";
+                    const newTheme = currentTheme === "light" ? "dark" : "light";
+                    localStorage.setItem("theme", newTheme);
+                    setTheme(newTheme);
+                }
+    
+                function setThemeFromPreference() {
+                    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+                    const systemPreference = prefersDarkScheme.matches ? "dark" : "light";
+                    if (!localStorage.getItem("theme")) {
+                        localStorage.setItem("theme", systemPreference);
+                    }
+                    setTheme(localStorage.getItem("theme"));
+                }
+    
+                setThemeFromPreference();
+    
+                mode.addEventListener("click", () => {
+                    toggleTheme();
+                });
+            });
+        </script>
+    </div>
+</body>
+
+</html>
