@@ -208,7 +208,6 @@ button {
 }
 
 .currency-list li {
-  display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
@@ -235,6 +234,10 @@ button {
   border-radius: 0.25rem;
   content: "";
   animation: loading 1s linear infinite alternate;
+}
+
+h4{
+  color: black;
 }
 
 @keyframes loading {
