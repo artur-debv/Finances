@@ -26,6 +26,7 @@
 .bx-menu:before {
     content: "\eb5f";
     margin-left: 20px;
+    font-size: 18px;
 }
 
 
