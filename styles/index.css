@@ -285,7 +285,12 @@ footer {
     color: white;
 }
 
+
 .dark table thead tr th:last-child, table tbody tr td:last-child{
+    color: white;
+}
+
+.dark .bx-menu:before{
     color: white;
 }
 
