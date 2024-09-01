@@ -1,6 +1,4 @@
-const MenuBar = document.getElementById("#icon_menuBar")
+const MenuBar = document.getElementById('icon_menuBar')
 
+console.log(menubar)
 
-menubar.addeventlistener("click",()=>{
-    console.log("clicou no menubar")
-})
