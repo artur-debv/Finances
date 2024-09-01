@@ -7,6 +7,7 @@ Menu.addEventListener("click", () => {
     Sidebar.classList.add('open-sidebar');
     Sidebar.style.display = "flex";
     Sidebar.style.minWidth = "15%";
+    Sidebar.style.width = "160px";
     console.log(Sidebar)
 });
 
