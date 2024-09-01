@@ -3,5 +3,9 @@ const Button_Close = document.getElementById("open_btn")
 const Sidebar = document.getElementById("sidebar")
 
 Menu.addEventListener("click",()=>{
-  console.log(Sidebar)
+    Sidebar.classList.add('open-sidebar');
+})
+
+Button_Close.addEventListener("click",()=>{
+    Sidebar.classList.remove('open-sidebar');
 })
