@@ -23,6 +23,10 @@
 }
 
 
+.bx-menu:before {
+    content: "\eb5f";
+    margin-left: 20px;
+}
 
 
 .fa-sun:before {
