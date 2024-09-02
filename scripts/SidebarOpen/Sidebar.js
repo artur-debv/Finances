@@ -12,10 +12,10 @@ Menu.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (event) => {
-    // Verifica se o clique foi fora do sidebar e do menu
-    if (!Sidebar.contains(event.target) && !Menu.contains(event.target)) {
-        Sidebar.style.display = "none"; // Fecha a sidebar
-        Sidebar.classList.remove('open-sidebar'); // Remove a classe que a abre
+    if (window.innerWidth <= 768) {
+        if (!Sidebar.contains(event.target) && !Menu.contains(event.target)) {
+            Sidebar.classList.remove('open-sidebar'); // Fecha o sidebar suavemente
+        }
     }
 });
 
