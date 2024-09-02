@@ -11,8 +11,11 @@ Menu.addEventListener("click", () => {
     console.log(Sidebar)
 });
 
-/*
-Button_Close.addEventListener("click", () => {
-    Sidebar.classList.remove('open-sidebar');
-    Sidebar.style.display = "none";
-});*/
+document.addEventListener("click", (event) => {
+    // Verifica se o clique foi fora do sidebar e do menu
+    if (!Sidebar.contains(event.target) && !Menu.contains(event.target)) {
+        Sidebar.style.display = "none"; // Fecha a sidebar
+        Sidebar.classList.remove('open-sidebar'); // Remove a classe que a abre
+    }
+});
+
