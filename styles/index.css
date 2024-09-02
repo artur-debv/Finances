@@ -302,10 +302,6 @@ footer {
     background-color: #282828;
 }
 
-.dark button{
-    background-color: #1F2020;
-}
-
 .dark .button.cancel{
     border: 1px solid #1F2020;
     color: #1F2020;
