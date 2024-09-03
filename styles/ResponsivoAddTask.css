@@ -4,6 +4,8 @@
         position: relative;
         top: 30px;
         font-size: 15px;
+        background: none;
+        color: black;
     }
   }
   
