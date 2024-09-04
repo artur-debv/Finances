@@ -4,6 +4,9 @@
     color: black;
   }
   #input_Search{
-    width: 440px;
+    width: 460px;
+  }
+  #button_search{
+    width: 460px;
   }
 }
