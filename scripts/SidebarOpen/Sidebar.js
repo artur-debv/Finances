@@ -16,7 +16,7 @@ document.addEventListener("click", (event) => {
     // Verifique se a largura da tela é menor ou igual a 900px
     if (window.innerWidth <= 900) {
         // Verifique se o clique foi fora do Sidebar e do Menu
-        if (!Sidebar.contains(event.target) && !Menu.contains(event.target)) {
+        if (!Sidebar.contains(event.target)) {
             Sidebar.classList.remove('open-sidebar'); // Fecha o sidebar
         }
     }
