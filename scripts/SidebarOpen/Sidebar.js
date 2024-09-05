@@ -12,8 +12,9 @@ Menu.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (event) => {
-    !Sidebar.contains(event.target) && !Menu.contains(event.target) 
-            Sidebar.classList.remove('open-sidebar'); // Fecha o sidebar suavemente
+    !Sidebar.contains(event.target) && !Menu.contains(event.target){
+        Sidebar.classList.remove('open-sidebar'); // Fecha o sidebar suavemente
+    }
     }
 );
 
