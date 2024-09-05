@@ -12,10 +12,8 @@ Menu.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (event) => {
-    if (window.innerWidth >= 900) {
-        if (!Sidebar.contains(event.target) && !Menu.contains(event.target)) {
+    !Sidebar.contains(event.target) && !Menu.contains(event.target) 
             Sidebar.classList.remove('open-sidebar'); // Fecha o sidebar suavemente
-        }
     }
-});
+);
 
