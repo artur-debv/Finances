@@ -149,9 +149,7 @@ main{
     height: 0px;
 }
 
-#sidebar.open-sidebar {
-    min-width: 15%;
-}
+
 
 #sidebar.open-sidebar .item-description {
     width: 150px;
