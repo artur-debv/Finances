@@ -13,6 +13,10 @@ Menu.addEventListener("click", () => {
 document.addEventListener("click", (event) => {
     // Verifica se o clique foi fora do sidebar e do menu
     if (!Sidebar.contains(event.target) && !Menu.contains(event.target)) {
-        Sidebar.classList.remove('open-sidebar'); // Fecha o sidebar suavemente
+        Sidebar.classList.remove('open-sidebar'); // Remove a classe
+
+        // Reseta os estilos
+        Sidebar.style.display = "none";
+        Sidebar.style.width = "0";
     }
-}); 
+});
