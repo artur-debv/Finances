@@ -1,8 +1,4 @@
 @media (max-width: 900px) {
-  input[type="date"] {
-    background-color: red;
-    color: white;
-  }
   #input_Search{
     width: 460px;
   }
