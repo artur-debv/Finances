@@ -11,13 +11,8 @@ Menu.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (event) => {
-    const sidebar = document.getElementById('sidebar'); // Seletor para o sidebar
-
-    // Verifica se a largura da tela é menor ou igual a 900px (configuração para mobile)
-    if (window.innerWidth <= 900) {
-        // Verifica se o clique ocorreu fora do Sidebar
-        if (!sidebar.contains(event.target)) {
-            sidebar.remove(); // Remove o sidebar completamente do DOM
-        }
+    // Verifica se o clique foi fora do sidebar e do menu
+    if (!Sidebar.contains(event.target) && !Menu.contains(event.target)) {
+        Sidebar.classList.remove('open-sidebar'); // Fecha o sidebar suavemente
     }
-});
+}); 
