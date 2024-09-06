@@ -1,6 +1,6 @@
 @media (max-width: 900px) {
   input[type="date"] {
-    background-color: white;
+    background-color: red;
     color: black;
   }
   #input_Search{
