@@ -8,4 +8,7 @@
         justify-content: space-between; /* Alinha a logo e a foto de perfil lado a lado */
         align-items: center; /* Centraliza verticalmente */
     }
+    .open-sidebar #open_btn_icon{
+        transform: none;
+    }
 }
