@@ -10,3 +10,14 @@ Menu.addEventListener("click", () => {
     console.log(Sidebar)
 });
 
+document.addEventListener("click", (event) => {
+    const Sidebar = document.getElementById('sidebar'); // Seletor para o sidebar
+
+    // Verifica se a largura da tela é menor ou igual a 900px (configuração para mobile)
+    if (window.innerWidth <= 900) {
+        // Verifica se o clique ocorreu fora do Sidebar
+        if (!Sidebar.contains(event.target)) {
+            Sidebar.remove(); // Remove o sidebar completamente do DOM
+        }
+    }
+});
