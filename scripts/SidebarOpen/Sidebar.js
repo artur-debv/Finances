@@ -11,13 +11,13 @@ Menu.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (event) => {
-    const Sidebar = document.getElementById('sidebar'); // Seletor para o sidebar
+    const sidebar = document.getElementById('sidebar'); // Seletor para o sidebar
 
     // Verifica se a largura da tela é menor ou igual a 900px (configuração para mobile)
     if (window.innerWidth <= 900) {
         // Verifica se o clique ocorreu fora do Sidebar
-        if (Sidebar.contains(event.target)) {
-          sidebar.remove(sidebar)
+        if (!sidebar.contains(event.target)) {
+            sidebar.remove(); // Remove o sidebar completamente do DOM
         }
     }
 });
