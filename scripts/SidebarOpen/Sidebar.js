@@ -11,7 +11,7 @@ Menu.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (event) => {
-    const Sidebar = document.querySelector('.sidebar'); // Seletor para o sidebar
+    const Sidebar = document.getElementById('sidebar'); // Seletor para o sidebar
 
     // Verifica se a largura da tela é menor ou igual a 900px (configuração para mobile)
     if (window.innerWidth <= 900) {
