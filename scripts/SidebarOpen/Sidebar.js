@@ -17,7 +17,7 @@ document.addEventListener("click", (event) => {
     if (window.innerWidth <= 900) {
         // Verifica se o clique ocorreu fora do Sidebar
         if (Sidebar.contains(event.target)) {
-           Sidebar.classList.remove('open-sidebar')
+          sidebar.remove(sidebar)
         }
     }
 });
