@@ -11,12 +11,14 @@ Menu.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (event) => {
-    // Verifica se o clique foi fora do sidebar e do menu
-    if (!Sidebar.contains(event.target) && !Menu.contains(event.target)) {
-        Sidebar.classList.remove('open-sidebar'); // Remove a classe
+    if (window.innerWidth <= 900) {  // Verifica se a largura da tela é menor ou igual a 768px
+        // Verifica se o clique foi fora do sidebar e do menu
+        if (!Sidebar.contains(event.target) && !Menu.contains(event.target)) {
+            Sidebar.classList.remove('open-sidebar'); // Remove a classe
 
-        // Reseta os estilos
-        Sidebar.style.display = "none";
-        Sidebar.style.width = "0";
+            // Reseta os estilos
+            Sidebar.style.display = "none";
+            Sidebar.style.width = "0";
+        }
     }
 });
