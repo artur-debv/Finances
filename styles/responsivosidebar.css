@@ -11,4 +11,7 @@
     .open-sidebar #open_btn_icon{
         transform: none;
     }
+    #open_btn{
+        display: none;
+    }
 }
