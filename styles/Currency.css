@@ -235,7 +235,7 @@ button {
   animation: loading 1s linear infinite alternate;
 }
 
-h4{
+h4 {
   color: black;
 }
 
@@ -243,6 +243,7 @@ h4{
   from {
     background: var(--loading-bg-1);
   }
+
   to {
     background: var(--loading-bg-2);
   }
