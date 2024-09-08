@@ -1,17 +1,20 @@
 @media (max-width: 900px) {
     #sidebar {
-        display: none; /* Esconde o sidebar */
+        display: none;
+        /* Esconde o sidebar */
     }
 
     .header {
         display: flex;
-        justify-content: space-between; /* Alinha a logo e a foto de perfil lado a lado */
-        align-items: center; /* Centraliza verticalmente */
+        justify-content: space-between;
+        align-items: center;
     }
-    .open-sidebar #open_btn_icon{
+
+    .open-sidebar #open_btn_icon {
         transform: none;
     }
-    #open_btn{
+
+    #open_btn {
         display: none;
     }
 }
