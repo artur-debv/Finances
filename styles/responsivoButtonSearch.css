@@ -1,0 +1,5 @@
+@media (max-width: 900px) {
+   #button_search:hover{
+     background: none;
+   }
+}
