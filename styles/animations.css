@@ -3,16 +3,20 @@
         bottom: 0;
         opacity: 0;
     }
+
     to {
         bottom: 30px;
-        opacity: 1;}
+        opacity: 1;
+    }
 }
+
 @keyframes fadein {
-    from{
+    from {
         bottom: 0;
         opacity: 0;
     }
-    to  {
+
+    to {
         bottom: 30px;
         opacity: 1;
     }
@@ -21,18 +25,21 @@
 
 
 @-webkit-keyframes expand {
-    from{
+    from {
         min-width: 50px
     }
-    to  {
+
+    to {
         min-width: 350px
     }
 }
+
 @keyframes expand {
-    from{
+    from {
         min-width: 50px
     }
-    to  {
+
+    to {
         min-width: 350px
     }
 }
@@ -40,18 +47,21 @@
 
 
 @-webkit-keyframes stay {
-    from{
+    from {
         min-width: 350px
     }
-    to  {
+
+    to {
         min-width: 350px
     }
 }
+
 @keyframes stay {
-    from{
+    from {
         min-width: 350px
     }
-    to  {
+
+    to {
         min-width: 350px
     }
 }
@@ -59,18 +69,21 @@
 
 
 @-webkit-keyframes shrink {
-    from{
+    from {
         min-width: 350px;
     }
-    to  {
+
+    to {
         min-width: 50px;
     }
 }
+
 @keyframes shrink {
-    from{
+    from {
         min-width: 350px;
     }
-    to  {
+
+    to {
         min-width: 50px;
     }
 }
@@ -78,19 +91,26 @@
 
 
 @-webkit-keyframes fadeout {
-    from{
-        bottom: 30px; opacity: 1;
+    from {
+        bottom: 30px;
+        opacity: 1;
     }
-    to  {
-        bottom: 60px; opacity: 0;
+
+    to {
+        bottom: 60px;
+        opacity: 0;
     }
 }
+
 @keyframes fadeout {
-    from{
-        bottom: 30px; opacity: 1;
+    from {
+        bottom: 30px;
+        opacity: 1;
     }
-    to  {
-        bottom: 60px; opacity: 0;
+
+    to {
+        bottom: 60px;
+        opacity: 0;
     }
 }
 
@@ -100,7 +120,7 @@
 
 
 #toast.show {
-    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
-    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
     visibility: visible;
 }
