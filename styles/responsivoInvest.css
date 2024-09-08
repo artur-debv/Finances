@@ -1,0 +1,9 @@
+@media (max-width: 900px) {
+    #input_Search{
+        width: 92%;
+    }
+    button{
+        width: 92%;
+    }
+  }
+  
