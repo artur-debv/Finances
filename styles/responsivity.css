@@ -1,16 +1,21 @@
 @media (min-width: 800px) {
     html {
-        font-size: 87.5%;/*14px*/
+        font-size: 87.5%;
+        /*14px*/
     }
+
     #balance {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         /*ou grid-template-columns: 1fr 1fr 1fr;*/
-        gap: 2rem;/*Espaçamento entre ...*/
+        gap: 2rem;
+        /*Espaçamento entre ...*/
     }
+
     div#toast {
         font-size: 14px;
     }
+
     .float-button {
         bottom: 40px;
         right: 40px;
