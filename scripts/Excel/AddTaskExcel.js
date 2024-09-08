@@ -1,4 +1,4 @@
-document.querySelector('form').addEventListener('submit', function(event) {
+document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault(); // Evita o envio padrão do formulário
 
     // Captura os dados do formulário
@@ -21,12 +21,12 @@ document.querySelector('form').addEventListener('submit', function(event) {
         },
         body: JSON.stringify(transactionData)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Transação adicionada com sucesso:", data);
-        // Aqui você pode adicionar lógica adicional, como limpar o formulário ou mostrar uma mensagem de sucesso
-    })
-    .catch(error => {
-        console.error("Erro ao adicionar transação:", error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            console.log("Transação adicionada com sucesso:", data);
+            // Aqui você pode adicionar lógica adicional, como limpar o formulário ou mostrar uma mensagem de sucesso
+        })
+        .catch(error => {
+            console.error("Erro ao adicionar transação:", error);
+        });
 });
