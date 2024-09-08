@@ -68,7 +68,7 @@ input {
 }
 
 #input_Search{
-    width: 92%;
+    width: 40%;
     padding: 0.8rem;
     border: none;
     border-radius: 0.2rem;
@@ -155,7 +155,7 @@ a {
 }
 
 button {
-    width: 92%;
+    width: 40%;
     height: 50px;
 
     color: white;
