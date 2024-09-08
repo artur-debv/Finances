@@ -1,7 +1,6 @@
 @media (max-width: 900px) {
-    .bx-menu:before{
+    .bx-menu:before {
         display: block;
         color: white;
     }
-  }
-  
+}
