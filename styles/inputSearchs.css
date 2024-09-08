@@ -1,14 +1,14 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: content-box;
 }
 
-#input_search{
- width: 200px;
+#input_search {
+    width: 200px;
 }
 
 
-.containers{
+.containers {
     margin-bottom: 10px;
 }
