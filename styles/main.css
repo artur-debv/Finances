@@ -1,11 +1,12 @@
 /* Global */
 *,
 *:before,
-*:after{
+*:after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 :root {
     --background: #f0f2f5;
     --background-modal: #f0f2f5;
@@ -37,12 +38,15 @@
     --color-modal-overlay: rgba(0, 0, 0, 0.7);
     --shadow: #999;
 }
+
 body {
     background: var(--background);
     font-family: 'Poppins', sans-serif;
 }
+
 html {
-    font-size: 93.75%; /*15px*/
+    font-size: 93.75%;
+    /*15px*/
 }
 
 .sr-only {
