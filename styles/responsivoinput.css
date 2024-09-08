@@ -1,8 +1,9 @@
 @media (max-width: 900px) {
-  #input_Search{
+  #input_Search {
     width: 460px;
   }
-  #button_search{
+
+  #button_search {
     width: 460px;
   }
 }
