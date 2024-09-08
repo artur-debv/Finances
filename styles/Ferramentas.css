@@ -63,12 +63,6 @@
   align-items: center;
 }
 
-.icon {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .link_row {
   color: black;
 }
