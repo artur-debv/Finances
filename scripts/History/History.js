@@ -8,12 +8,12 @@ const TopTransactions = {
     const monthlyExpenses = {};
 
     allTransactions.forEach(transaction => {
-      // Dividir a data em dia, mês e ano usando split('/')
+
       const parts = transaction.date.split('/');
       const formattedDate = `${parts[1]}/${parts[0]}/${parts[2]}`; // Reorganizar para mm/dd/yyyy
       const date = new Date(formattedDate);
 
-      // Verificar se a data é válida
+
       if (!isValidDate(date)) {
         console.warn(`Ignorando transação com data inválida: ${transaction.description}`);
         return; // Ignora esta transação
@@ -47,7 +47,7 @@ const TopTransactions = {
   renderMonthWithHighestExpenses() {
     const highestMonth = this.getMonthWithHighestExpenses();
 
-    // Exibir o mês com maior gasto na interface
+
     const monthDisplay = document.querySelector("#highestMonthDisplay");
     if (monthDisplay) {
       monthDisplay.textContent = highestMonth || "Nenhum mês encontrado";
@@ -59,6 +59,6 @@ function isValidDate(date) {
   return date instanceof Date && !isNaN(date);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   TopTransactions.renderMonthWithHighestExpenses();
 });
