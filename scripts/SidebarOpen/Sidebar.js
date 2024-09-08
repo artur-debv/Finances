@@ -26,7 +26,7 @@ document.addEventListener("click", (event) => {
 window.addEventListener("resize", () => {
     if (window.innerWidth > 900) {
         Sidebar.classList.add('open-sidebar'); // Adiciona a classe de volta ao sidebar
-        Sidebar.style.display = "block";
+        Sidebar.style.display = "flex";
         Sidebar.style.width = "150px"; // Ajuste o valor conforme a largura que o sidebar deve ter no desktop
     }
 });
