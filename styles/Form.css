@@ -1,27 +1,30 @@
 /* POPPINS FONT */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-*{  
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
     background: url("images/1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow: hidden;
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 110vh;
     background-color: #294d38;
 }
-.nav{
+
+.nav {
     position: fixed;
     top: 0;
     display: flex;
@@ -29,31 +32,38 @@ body{
     width: 100%;
     height: 100px;
     line-height: 100px;
-    background: linear-gradient(rgba(39,39,39, 0.6), transparent);
+    background: linear-gradient(rgba(39, 39, 39, 0.6), transparent);
     z-index: 100;
 }
-.nav-logo p{
+
+.nav-logo p {
     color: white;
     font-size: 25px;
     font-weight: 600;
 }
-.nav-menu ul{
+
+.nav-menu ul {
     display: flex;
 }
-.nav-menu ul li{
+
+.nav-menu ul li {
     list-style-type: none;
 }
-.nav-menu ul li .link{
+
+.nav-menu ul li .link {
     text-decoration: none;
     font-weight: 500;
     color: #fff;
     padding-bottom: 15px;
     margin: 0 25px;
 }
-.link:hover, .active{
+
+.link:hover,
+.active {
     border-bottom: 2px solid #fff;
 }
-.nav-button .btn{
+
+.nav-button .btn {
     width: 130px;
     height: 40px;
     font-weight: 500;
@@ -63,22 +73,28 @@ body{
     cursor: pointer;
     transition: .3s ease;
 }
-.btn:hover{
+
+.btn:hover {
     background: rgba(255, 255, 255, 0.3);
 }
-#registerBtn{
+
+#registerBtn {
     margin-left: 15px;
 }
-.btn.white-btn{
+
+.btn.white-btn {
     background: rgba(255, 255, 255, 0.7);
 }
-.btn.btn.white-btn:hover{
+
+.btn.btn.white-btn:hover {
     background: rgba(255, 255, 255, 0.5);
 }
-.nav-menu-btn{
+
+.nav-menu-btn {
     display: none;
 }
-.form-box{
+
+.form-box {
     position: relative;
     display: flex;
     align-items: center;
@@ -88,7 +104,8 @@ body{
     overflow: hidden;
     z-index: 2;
 }
-.login-container{
+
+.login-container {
     position: absolute;
     left: 4px;
     width: 500px;
@@ -96,7 +113,8 @@ body{
     flex-direction: column;
     transition: .5s ease-in-out;
 }
-.register-container{
+
+.register-container {
     position: absolute;
     right: -520px;
     width: 500px;
@@ -104,7 +122,8 @@ body{
     flex-direction: column;
     transition: .5s ease-in-out;
 }
-.top span{
+
+.top span {
     color: #fff;
     font-size: small;
     padding: 10px 0;
@@ -112,28 +131,31 @@ body{
     justify-content: center;
     margin-bottom: 20px;
 }
-.top span a{
+
+.top span a {
     font-weight: 500;
     color: #fff;
     margin-left: 5px;
 }
-header{
+
+header {
     color: #fff;
     font-size: 30px;
     text-align: center;
     padding: 10px 0 30px 0;
 }
-.two-forms{
+
+.two-forms {
     display: flex;
     gap: 10px;
 }
 
-.icon{
- display: flex;
- align-items: center;
+.icon {
+    display: flex;
+    align-items: center;
 }
 
-.input-field{
+.input-field {
     font-size: 15px;
     background: rgba(255, 255, 255, 0.2);
     color: #fff;
@@ -146,19 +168,24 @@ header{
     transition: .2s ease;
     margin-bottom: 20px;
 }
-.input-field:hover, .input-field:focus{
+
+.input-field:hover,
+.input-field:focus {
     background: rgba(255, 255, 255, 0.25);
 }
-::-webkit-input-placeholder{
+
+::-webkit-input-placeholder {
     color: #fff;
 }
-.input-box i{
+
+.input-box i {
     position: relative;
     top: -35px;
     left: 17px;
     color: #fff;
 }
-.submit{
+
+.submit {
     font-size: 15px;
     font-weight: 500;
     color: black;
@@ -172,43 +199,50 @@ header{
     transition: .3s ease-in-out;
     margin-bottom: 20px;
 }
-.submit:hover{
+
+.submit:hover {
     background: rgba(255, 255, 255, 0.5);
     box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
 }
-.two-col{
+
+.two-col {
     display: flex;
     justify-content: space-between;
     color: #fff;
     font-size: small;
     margin-top: 10px;
 }
-.two-col .one{
+
+.two-col .one {
     display: flex;
     gap: 5px;
 }
-.two label a{
+
+.two label a {
     text-decoration: none;
     color: #fff;
 }
-.two label a:hover{
+
+.two label a:hover {
     text-decoration: underline;
 }
 
-.icons{
+.icons {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@media only screen and (max-width: 786px){
-    .nav-button{
+@media only screen and (max-width: 786px) {
+    .nav-button {
         display: none;
     }
-    .nav-menu.responsive{
+
+    .nav-menu.responsive {
         top: 100px;
     }
-    .nav-menu{
+
+    .nav-menu {
         position: absolute;
         top: -800px;
         display: flex;
@@ -219,14 +253,17 @@ header{
         backdrop-filter: blur(20px);
         transition: .3s;
     }
-    .nav-menu ul{
+
+    .nav-menu ul {
         flex-direction: column;
         text-align: center;
     }
-    .nav-menu-btn{
+
+    .nav-menu-btn {
         display: block;
     }
-    .nav-menu-btn i{
+
+    .nav-menu-btn i {
         font-size: 25px;
         color: #fff;
         padding: 10px;
@@ -235,23 +272,29 @@ header{
         cursor: pointer;
         transition: .3s;
     }
-    .nav-menu-btn i:hover{
+
+    .nav-menu-btn i:hover {
         background: rgba(255, 255, 255, 0.15);
     }
 }
+
 @media only screen and (max-width: 540px) {
-    .wrapper{
+    .wrapper {
         min-height: 100vh;
     }
-    .form-box{
+
+    .form-box {
         width: 100%;
         height: 500px;
     }
-    .register-container, .login-container{
+
+    .register-container,
+    .login-container {
         width: 100%;
         padding: 0 20px;
     }
-    .register-container .two-forms{
+
+    .register-container .two-forms {
         flex-direction: column;
         gap: 0;
     }
@@ -268,49 +311,51 @@ header{
     margin-right: 14px;
 }
 
-img{
+img {
     display: block;
     margin: 0 auto;
-    margin-bottom: 20px;display: block;
+    margin-bottom: 20px;
+    display: block;
     margin: 0 auto;
     height: 30px;
 }
 
-header{
-   font-size: 14px;
+header {
+    font-size: 14px;
 }
 
-.dark .wrapper{
+.dark .wrapper {
     background-color: #282828;
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 
 .modal {
-  background: #fafafa;
-  border-radius: 0.5rem;
-  padding: 2rem;
-  text-align: center;
-  width: min(37rem, 80%);
+    background: #fafafa;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    width: min(37rem, 80%);
 }
 
 .modal::backdrop {
-  background: rgba(0, 0, 0, .7);
-}   
+    background: rgba(0, 0, 0, .7);
+}
 
 .modal h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 0.75rem;
-  color: #0d114f;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    color: #0d114f;
 }
 
 .modal p {
-  margin-bottom: 1.5rem;
-  color: #4d5e77;
+    margin-bottom: 1.5rem;
+    color: #4d5e77;
 }
 
 .modal button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* Estilos extras */
@@ -319,37 +364,40 @@ header{
 
 body,
 button {
-  font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .btn {
-  border: none;
-  border-radius: 0.5rem;
-  font-weight: 500;
-  font-size: 1rem;
-  background: #3485ff;
-  color: #fafafa;
-  transition: filter 0.2s;
-  padding: 1rem 2rem;
-  cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    background: #3485ff;
+    color: #fafafa;
+    transition: filter 0.2s;
+    padding: 1rem 2rem;
+    cursor: pointer;
 }
 
 .btn.close {
-  display: flex;
-  align-items: center;
-  clip-path: circle();
-  position: absolute;
-  top: 2rem;  
-  right: 2rem;
-  height: 1rem;
-  aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    clip-path: circle();
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    height: 1rem;
+    aspect-ratio: 1/1;
 }
 
-.btn:hover, .btn:focus, button:hover, button:focus {
-  filter: brightness(1.2);
+.btn:hover,
+.btn:focus,
+button:hover,
+button:focus {
+    filter: brightness(1.2);
 }
 
-#buttonDiv{
+#buttonDiv {
     display: block;
     width: 300px;
     margin: 0 auto;
@@ -357,7 +405,7 @@ button {
     margin-left: 140px;
 }
 
-.div_icon{
+.div_icon {
     text-align: center;
     display: flex;
     gap: 20px;
@@ -366,6 +414,6 @@ button {
     margin-bottom: 20px;
 }
 
-.S9gUrf-YoZ4jf{
+.S9gUrf-YoZ4jf {
     margin-left: 40px;
 }
