@@ -1,6 +1,6 @@
 /* Form */
 
-#tipoInvestimento{
+#tipoInvestimento {
     width: 100%;
 
     padding: 0.8rem;
@@ -16,9 +16,11 @@
 #form {
     max-width: 500px;
 }
+
 #form h2 {
     margin-top: 0;
 }
+
 input {
     width: 100%;
 
@@ -31,17 +33,21 @@ input {
     -ms-border-radius: 0.2rem;
     -o-border-radius: 0.2rem;
 }
+
 .input-group {
     margin-top: 0.8rem;
 }
+
 small.help-for-modal {
     opacity: 0.4;
 }
+
 .input-group.actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .input-group.actions .button,
 .input-group.actions button {
     width: 48%;
