@@ -16,10 +16,12 @@
     visibility: hidden;
     z-index: 999;
 }
+
 .modal-overlay.active {
     opacity: 1;
     visibility: visible;
 }
+
 .modal {
     background: var(--background-modal);
     padding: 2.4rem;
