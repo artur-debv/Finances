@@ -12,9 +12,9 @@ Menu.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (event) => {
-    // Verifique se a largura da janela é menor ou igual a 900
+
     if (window.innerWidth <= 900) {
-        // Verifique se o clique não foi no sidebar, no menu ou no botão de troca de tema
+
         if (!Sidebar.contains(event.target) && !Menu.contains(event.target) && !modeIcon.contains(event.target)) {
             Sidebar.classList.remove('open-sidebar'); // Remove a classe
             Sidebar.style.display = "none";
