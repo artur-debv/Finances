@@ -16,7 +16,7 @@
     --color-gradient: linear-gradient(90deg, var(--color-purple-50), var(--color-purple-100), var(--color-purple-200));
 }
 
-.icon{
+.icon {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,7 +43,7 @@
     color: white;
 }
 
-img{
+img {
     margin: 0 auto;
 }
 
@@ -54,6 +54,7 @@ header {
     padding: 2rem 0 11rem;
     text-align: center;
 }
+
 #logo {
     color: white;
     font-weight: 100;
@@ -64,7 +65,8 @@ header {
 /* Titles */
 h2 {
     color: var(--dark-blue);
-    font-weight: normal; /* = 400 */
+    font-weight: normal;
+    /* = 400 */
 
     margin: 3.2rem 0 0.8rem;
 }
@@ -73,7 +75,7 @@ h2 {
 
 /* Links & Buttons */
 a {
-   text-decoration: none;
+    text-decoration: none;
 }
 
 .button.new {
@@ -98,18 +100,20 @@ button {
     -o-border-radius: 0.25rem;
     cursor: pointer;
 }
+
 button:hover {
     background: var(--light-green);
-    
+
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
 }
+
 .button.cancel {
     height: 50px;
-    
+
     color: var(--normal-red);
 
     display: flex;
@@ -125,6 +129,7 @@ button:hover {
 
     opacity: 0.6;
 }
+
 .button.cancel:hover {
     opacity: 1;
 
@@ -141,6 +146,7 @@ button:hover {
 #balance {
     margin-top: -8rem;
 }
+
 #balance h2 {
     color: white;
     margin-top: 0;
@@ -162,6 +168,7 @@ button:hover {
     -ms-border-radius: 0.25rem;
     -o-border-radius: 0.25rem;
 }
+
 .card h3 {
     font-weight: normal;
     font-size: 1rem;
@@ -170,6 +177,7 @@ button:hover {
     align-items: center;
     justify-content: space-between;
 }
+
 .card p {
     font-weight: normal;
     font-size: 2rem;
@@ -177,12 +185,15 @@ button:hover {
 
     margin-top: 1rem;
 }
+
 .card.total {
     color: white;
 }
+
 .card.total.positive {
     background: #1F2020;
 }
+
 .card.total.negative {
     background: #8d041a;
 }
@@ -195,26 +206,32 @@ button:hover {
     display: block;
     overflow-x: auto;
 }
+
 #data-table {
     width: 100%;
     margin-top: 20px;
 }
+
 table thead tr th:first-child,
-table tbody tr td:first-child { /*1°Filho*/
+table tbody tr td:first-child {
+    /*1°Filho*/
     border-radius: 0.25rem 0 0 0.25rem;
     -webkit-border-radius: 0.25rem 0 0 0.25rem;
     -moz-border-radius: 0.25rem 0 0 0.25rem;
     -ms-border-radius: 0.25rem 0 0 0.25rem;
     -o-border-radius: 0.25rem 0 0 0.25rem;
 }
+
 table thead tr th:last-child,
-table tbody tr td:last-child { /*~°UltimoFilho*/
+table tbody tr td:last-child {
+    /*~°UltimoFilho*/
     border-radius: 0 0.25rem 0.25rem 0;
     -webkit-border-radius: 0 0.25rem 0.25rem 0;
     -moz-border-radius: 0 0.25rem 0.25rem 0;
     -ms-border-radius: 0 0.25rem 0.25rem 0;
     -o-border-radius: 0 0.25rem 0.25rem 0;
 }
+
 table thead th {
     background: white;
 
@@ -223,18 +240,23 @@ table thead th {
 
     text-align: center;
 }
+
 table tbody td {
     background: white;
-    border-spacing: 0 0.5rem; /* Vertical | Horizontal */
+    border-spacing: 0 0.5rem;
+    /* Vertical | Horizontal */
     text-align: center;
     padding: 1rem 2rem;
 }
+
 td.description {
     color: var(--dark-blue);
 }
+
 td.income {
     color: var(--money-green);
 }
+
 td.expense {
     color: var(--light-blue);
 }
@@ -260,91 +282,92 @@ footer {
     text-align: center;
 }
 
-.dark .card{
+.dark .card {
     background-color: #282828;
 }
 
-.dark span{
+.dark span {
     color: white;
 }
 
-.dark .card p{
+.dark .card p {
     color: white;
 }
 
-.dark .card.total.positive{
+.dark .card.total.positive {
     background-color: #282828;
 }
 
-.description{
+.description {
     background-color: white;
 }
 
-.dark table thead th{
-    background-color:#282828;
+.dark table thead th {
+    background-color: #282828;
     color: white;
 }
 
 
-.dark table thead tr th:last-child, table tbody tr td:last-child{
+.dark table thead tr th:last-child,
+table tbody tr td:last-child {
     color: white;
 }
 
-.select.bx-menu:before{
+.select.bx-menu:before {
     color: white;
 }
 
-.dark header{
+.dark header {
     background-color: #3C3C3C;
 }
 
-.dark .float-button{
+.dark .float-button {
     background-color: #282828;
 }
 
-.dark .button.cancel{
+.dark .button.cancel {
     border: 1px solid #1F2020;
     color: #1F2020;
 }
 
-.dark h2{
+.dark h2 {
     color: #1F2020;
 }
 
-.select #sidebar{
+.select #sidebar {
     background-color: #282828;
 }
 
 
-.dark #user{
+.dark #user {
     color: white;
 }
 
-.dark .a_history{
+.dark .a_history {
     color: black;
 }
 
-.select .a_history{
+.select .a_history {
     color: white;
 }
 
-.dark table tbody td{
-    background-color:#282828;
+.dark table tbody td {
+    background-color: #282828;
     color: white;
 }
 
-.icons_account{
+.icons_account {
     display: flex;
     align-items: center;
     gap: 9px;
 }
 
 
-.AddTask{
+.AddTask {
     display: none;
 }
 
 
-.login{
+.login {
     color: white;
 }
