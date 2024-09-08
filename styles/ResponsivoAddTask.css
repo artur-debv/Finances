@@ -1,5 +1,5 @@
 @media (max-width: 900px) {
-    .AddTask{
+    .AddTask {
         display: flex;
         position: relative;
         top: 30px;
@@ -7,5 +7,4 @@
         background: none;
         color: black;
     }
-  }
-  
+}
