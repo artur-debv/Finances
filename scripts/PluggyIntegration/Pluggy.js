@@ -1,5 +1,5 @@
 const getAccessToken = async () => {
-    const response = await fetch('https://auth.pluggy.ai/oauth/token', {
+    const response = await fetch('https://api.pluggy.ai/connect_token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
