@@ -6,8 +6,8 @@ async function Pluggy() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        client_id: 'e79cba51-9b39-43e3-907e-45a7d6862108',
-        client_secret: '3b3197f9-b65a-4888-99ba-5c4c92015c49',
+        client_id: 'd21a9043-5f92-4c82-9498-c20797ec3c4d',
+        client_secret: 'dfba0cb3-b925-4953-b6fc-a97aedab9909',
         grant_type: 'client_credentials'
       })
     });
