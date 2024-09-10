@@ -1,4 +1,4 @@
-const getAccessToken = async () => {
+const Pluggy = async () => {
     try {
       const response = await fetch('https://api.pluggy.ai/connect_token', {
         method: 'POST',
