@@ -1,19 +1,19 @@
 async function openConnect() {
-    const data = await Pluggy();
-    const connectToken = data.connectToken;
+  const data = await fetch('/api/getConnectToken');
+  const connectToken = data.connectToken;
 
-    const pluggyConnect = new pluggyConnect({
-      connectToken,
-      onSuccess: (data) => {
-        console.log('Conectado com sucesso:', data);
-        fetchTransactions(data.accountId);
-      },
-      onError: (error) => {
-        console.error('Erro ao conectar:', error);
-      }
-    });
+  const pluggyConnect = new pluggyConnect({
+    connectToken,
+    onSuccess: (data) => {
+      console.log('Conectado com sucesso:', data);
+      fetchTransactions(data.accountId);
+    },
+    onError: (error) => {
+      console.error('Erro ao conectar:', error);
+    }
+  });
 
-    pluggyConnect.open();
-  }
+  pluggyConnect.open();
+}
 
-  document.getElementById('connectButton').addEventListener('click', openConnect);
+document.getElementById('connectButton').addEventListener('click', openConnect);
