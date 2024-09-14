@@ -1,5 +1,5 @@
-@media (max-width: 900px) {
+@media (max-width:900px) {
     .tab-container {
-        max-width: 390px;
+        max-width: 390px
     }
 }

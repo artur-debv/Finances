@@ -1,5 +1,5 @@
-@media (max-width: 900px) {
+@media (max-width:900px) {
     .modal {
-        width: 350px;
+        width: 350px
     }
 }

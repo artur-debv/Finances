@@ -1,28 +1,26 @@
 @-webkit-keyframes fadein {
     from {
         bottom: 0;
-        opacity: 0;
+        opacity: 0
     }
 
     to {
         bottom: 30px;
-        opacity: 1;
+        opacity: 1
     }
 }
 
 @keyframes fadein {
     from {
         bottom: 0;
-        opacity: 0;
+        opacity: 0
     }
 
     to {
         bottom: 30px;
-        opacity: 1;
+        opacity: 1
     }
 }
-
-
 
 @-webkit-keyframes expand {
     from {
@@ -44,83 +42,68 @@
     }
 }
 
-
-
 @-webkit-keyframes stay {
-    from {
-        min-width: 350px
-    }
 
+    from,
     to {
         min-width: 350px
     }
 }
 
 @keyframes stay {
-    from {
-        min-width: 350px
-    }
 
+    from,
     to {
         min-width: 350px
     }
 }
 
-
-
 @-webkit-keyframes shrink {
     from {
-        min-width: 350px;
+        min-width: 350px
     }
 
     to {
-        min-width: 50px;
+        min-width: 50px
     }
 }
 
 @keyframes shrink {
     from {
-        min-width: 350px;
+        min-width: 350px
     }
 
     to {
-        min-width: 50px;
+        min-width: 50px
     }
 }
-
-
 
 @-webkit-keyframes fadeout {
     from {
         bottom: 30px;
-        opacity: 1;
+        opacity: 1
     }
 
     to {
         bottom: 60px;
-        opacity: 0;
+        opacity: 0
     }
 }
 
 @keyframes fadeout {
     from {
         bottom: 30px;
-        opacity: 1;
+        opacity: 1
     }
 
     to {
         bottom: 60px;
-        opacity: 0;
+        opacity: 0
     }
 }
 
-
-
-
-
-
 #toast.show {
-    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
-    animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
-    visibility: visible;
+    -webkit-animation: .5s fadein, .5s .5s expand, 3s 1s stay, .5s 4s shrink, .5s 4.5s fadeout;
+    animation: .5s fadein, .5s .5s expand, 3s 1s stay, .5s 4s shrink, .5s 4.5s fadeout;
+    visibility: visible
 }

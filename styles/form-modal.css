@@ -1,54 +1,38 @@
-/* Form */
-
-#tipoInvestimento {
+#tipoInvestimento,
+input {
     width: 100%;
-
-    padding: 0.8rem;
-
+    padding: .8rem;
     border: none;
-    border-radius: 0.2rem;
+    border-radius: .2rem;
     -webkit-border-radius: 0.2rem;
-    -moz-border-radius: 0.2rem;
+    -moz-border-radius: .2rem;
     -ms-border-radius: 0.2rem;
-    -o-border-radius: 0.2rem;
+    -o-border-radius: .2rem
 }
 
 #form {
-    max-width: 500px;
+    max-width: 500px
 }
 
 #form h2 {
-    margin-top: 0;
-}
-
-input {
-    width: 100%;
-
-    padding: 0.8rem;
-
-    border: none;
-    border-radius: 0.2rem;
-    -webkit-border-radius: 0.2rem;
-    -moz-border-radius: 0.2rem;
-    -ms-border-radius: 0.2rem;
-    -o-border-radius: 0.2rem;
+    margin-top: 0
 }
 
 .input-group {
-    margin-top: 0.8rem;
+    margin-top: .8rem
 }
 
 small.help-for-modal {
-    opacity: 0.4;
+    opacity: .4
 }
 
 .input-group.actions {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 .input-group.actions .button,
 .input-group.actions button {
-    width: 48%;
+    width: 48%
 }

@@ -1,374 +1,293 @@
-:root {
-    /* Light */
-    --color-light-50: #f8fafc;
+.card h3,
+.card p,
+h2,
+table thead th {
+    font-weight: 400
+}
 
-    /* Dark */
+table tbody td,
+table thead th {
+    background: #fff;
+    padding: 1rem 2rem;
+    text-align: center
+}
+
+footer,
+header,
+table tbody td,
+table thead th {
+    text-align: center
+}
+
+:root {
+    --color-light-50: #f8fafc;
     --color-dark-50: #797984;
     --color-dark-100: #312d37;
     --color-dark-900: #000;
-
-    /* Purple */
     --color-purple-50: #7c3aed;
     --color-purple-100: #a855f7;
     --color-purple-200: #bf46ef;
+    --color-gradient: linear-gradient(90deg, var(--color-purple-50), var(--color-purple-100), var(--color-purple-200))
+}
 
-    /* Gradient */
-    --color-gradient: linear-gradient(90deg, var(--color-purple-50), var(--color-purple-100), var(--color-purple-200));
+.card,
+h2 {
+    color: var(--dark-blue)
 }
 
 .icon {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center
 }
 
+.button.cancel,
+.card h3 {
+    align-items: center;
+    display: flex
+}
 
 .bx-menu:before {
     content: "\eb5f";
     margin-left: 20px;
     font-size: 18px;
-    display: none;
+    display: none
 }
-
 
 .fa-sun:before {
     content: "\f185";
     margin-right: 39px;
-    color: yellow;
+    color: #ff0
 }
 
 .fa-moon:before {
     content: "\f186";
     margin-right: 39px;
-    color: white;
+    color: #fff
 }
 
 img {
     margin: 0 auto;
-    width: 30px;
+    width: 30px
 }
 
-/* Header */
 header {
     background: var(--dark-green);
+    padding: 2rem 0 11rem
+}
 
-    padding: 2rem 0 11rem;
-    text-align: center;
+.card.total.positive,
+button {
+    background: #1f2020
 }
 
 #logo {
-    color: white;
-    font-weight: 100;
+    color: #fff;
+    font-weight: 100
 }
 
-
-
-/* Titles */
 h2 {
-    color: var(--dark-blue);
-    font-weight: normal;
-    /* = 400 */
-
-    margin: 3.2rem 0 0.8rem;
+    margin: 3.2rem 0 .8rem
 }
 
-
-
-/* Links & Buttons */
 a {
-    text-decoration: none;
+    text-decoration: none
 }
 
 .button.new {
     display: inline-block;
-    margin-bottom: 0.8rem;
+    margin-bottom: .8rem
 }
 
 button {
     width: 100%;
     height: 50px;
-
-    color: white;
-    background: #1F2020;
-
+    color: #fff;
     padding: 0;
-
     border: none;
-    border-radius: 0.25rem;
+    border-radius: .25rem;
     -webkit-border-radius: 0.25rem;
-    -moz-border-radius: 0.25rem;
+    -moz-border-radius: .25rem;
     -ms-border-radius: 0.25rem;
-    -o-border-radius: 0.25rem;
-    cursor: pointer;
+    -o-border-radius: .25rem;
+    cursor: pointer
 }
 
 button:hover {
     background: var(--light-green);
-
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s
 }
 
 .button.cancel {
     height: 50px;
-
     color: var(--normal-red);
-
-    display: flex;
-    align-items: center;
     justify-content: center;
-
     border: 1px solid var(--normal-red);
-    border-radius: 0.25rem;
+    border-radius: .25rem;
     -webkit-border-radius: 0.25rem;
-    -moz-border-radius: 0.25rem;
+    -moz-border-radius: .25rem;
     -ms-border-radius: 0.25rem;
-    -o-border-radius: 0.25rem;
-
-    opacity: 0.6;
+    -o-border-radius: .25rem;
+    opacity: .6
 }
 
 .button.cancel:hover {
     opacity: 1;
-
-    transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s
 }
 
-
-
-/* Balance */
 #balance {
-    margin-top: -8rem;
+    margin-top: -8rem
 }
 
 #balance h2 {
-    color: white;
-    margin-top: 0;
+    color: #fff;
+    margin-top: 0
 }
 
-
-
-/* Cards */
 .card {
-    color: var(--dark-blue);
-    background: white;
-
+    background: #fff;
     padding: 1.5rem 2rem;
     margin-bottom: 3rem;
-
-    border-radius: 0.25rem;
+    border-radius: .25rem;
     -webkit-border-radius: 0.25rem;
-    -moz-border-radius: 0.25rem;
+    -moz-border-radius: .25rem;
     -ms-border-radius: 0.25rem;
-    -o-border-radius: 0.25rem;
+    -o-border-radius: .25rem
 }
 
 .card h3 {
-    font-weight: normal;
     font-size: 1rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 .card p {
-    font-weight: normal;
     font-size: 2rem;
     line-height: 3rem;
-
-    margin-top: 1rem;
+    margin-top: 1rem
 }
 
-.card.total {
-    color: white;
+.card.total,
+.dark #user,
+.dark .card p,
+.dark span,
+.dark table thead tr th:last-child,
+.login,
+.select .a_history,
+.select.bx-menu:before,
+table tbody tr td:last-child {
+    color: #fff
 }
 
-.card.total.positive {
-    background: #1F2020;
+footer,
+td.description {
+    color: var(--dark-blue)
 }
 
 .card.total.negative {
-    background: #8d041a;
+    background: #8d041a
 }
 
-
-/* Table */
 #transaction {
     width: 100%;
-
     display: block;
-    overflow-x: auto;
+    overflow-x: auto
 }
 
 #data-table {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 20px
 }
 
-table thead tr th:first-child,
-table tbody tr td:first-child {
-    /*1°Filho*/
-    border-radius: 0.25rem 0 0 0.25rem;
+table tbody tr td:first-child,
+table thead tr th:first-child {
+    border-radius: .25rem 0 0 .25rem;
     -webkit-border-radius: 0.25rem 0 0 0.25rem;
-    -moz-border-radius: 0.25rem 0 0 0.25rem;
+    -moz-border-radius: .25rem 0 0 .25rem;
     -ms-border-radius: 0.25rem 0 0 0.25rem;
-    -o-border-radius: 0.25rem 0 0 0.25rem;
+    -o-border-radius: .25rem 0 0 .25rem
 }
 
-table thead tr th:last-child,
-table tbody tr td:last-child {
-    /*~°UltimoFilho*/
-    border-radius: 0 0.25rem 0.25rem 0;
+table tbody tr td:last-child,
+table thead tr th:last-child {
+    border-radius: 0 .25rem .25rem 0;
     -webkit-border-radius: 0 0.25rem 0.25rem 0;
-    -moz-border-radius: 0 0.25rem 0.25rem 0;
+    -moz-border-radius: 0 .25rem .25rem 0;
     -ms-border-radius: 0 0.25rem 0.25rem 0;
-    -o-border-radius: 0 0.25rem 0.25rem 0;
-}
-
-table thead th {
-    background: white;
-
-    font-weight: normal;
-    padding: 1rem 2rem;
-
-    text-align: center;
+    -o-border-radius: 0 .25rem .25rem 0
 }
 
 table tbody td {
-    background: white;
-    border-spacing: 0 0.5rem;
-    /* Vertical | Horizontal */
-    text-align: center;
-    padding: 1rem 2rem;
-}
-
-td.description {
-    color: var(--dark-blue);
+    border-spacing: 0 0.5rem
 }
 
 td.income {
-    color: var(--money-green);
+    color: var(--money-green)
 }
 
 td.expense {
-    color: var(--light-blue);
+    color: var(--light-blue)
 }
-
-
 
 img.remove {
     cursor: pointer;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
-
-
-
-
-/* Footer */
 footer {
-    color: var(--dark-blue);
-    opacity: 0.6;
-
-    padding: 4rem 0 2rem;
-    text-align: center;
+    opacity: .6;
+    padding: 4rem 0 2rem
 }
 
-.dark .card {
-    background-color: #282828;
-}
-
-.dark span {
-    color: white;
-}
-
-.dark .card p {
-    color: white;
-}
-
-.dark .card.total.positive {
-    background-color: #282828;
+.dark .card,
+.dark .card.total.positive,
+.dark .float-button,
+.select #sidebar {
+    background-color: #282828
 }
 
 .description {
-    background-color: white;
+    background-color: #fff
 }
 
+.dark table tbody td,
 .dark table thead th {
     background-color: #282828;
-    color: white;
-}
-
-
-.dark table thead tr th:last-child,
-table tbody tr td:last-child {
-    color: white;
-}
-
-.select.bx-menu:before {
-    color: white;
+    color: #fff
 }
 
 .dark header {
-    background-color: #3C3C3C;
-}
-
-.dark .float-button {
-    background-color: #282828;
+    background-color: #3c3c3c
 }
 
 .dark .button.cancel {
-    border: 1px solid #1F2020;
-    color: #1F2020;
+    border: 1px solid #1f2020;
+    color: #1f2020
 }
 
 .dark h2 {
-    color: #1F2020;
-}
-
-.select #sidebar {
-    background-color: #282828;
-}
-
-
-.dark #user {
-    color: white;
+    color: #1f2020
 }
 
 .dark .a_history {
-    color: black;
-}
-
-.select .a_history {
-    color: white;
-}
-
-.dark table tbody td {
-    background-color: #282828;
-    color: white;
+    color: #000
 }
 
 .icons_account {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 9px
 }
-
 
 .AddTask {
-    display: none;
-}
-
-
-.login {
-    color: white;
+    display: none
 }

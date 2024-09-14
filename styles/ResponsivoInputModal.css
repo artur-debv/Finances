@@ -1,5 +1,5 @@
-@media (max-width: 900px) {
-    #date{
-        color: black;
+@media (max-width:900px) {
+    #date {
+        color: #000
     }
-  }
+}

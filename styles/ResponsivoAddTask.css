@@ -1,10 +1,10 @@
-@media (max-width: 900px) {
+@media (max-width:900px) {
     .AddTask {
         display: flex;
         position: relative;
         top: 30px;
         font-size: 15px;
-        background: none;
-        color: black;
+        background: 0 0;
+        color: #000
     }
 }

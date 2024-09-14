@@ -1,20 +1,17 @@
-@media (max-width: 900px) {
+@media (max-width:900px) {
+
+    #open_btn,
     #sidebar {
-        display: none;
-        /* Esconde o sidebar */
+        display: none
     }
 
     .header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: center
     }
 
     .open-sidebar #open_btn_icon {
-        transform: none;
-    }
-
-    #open_btn {
-        display: none;
+        transform: none
     }
 }

@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 .tab-container {
@@ -10,13 +10,17 @@
   background-color: #1f1f1f;
   padding: 20px;
   border-radius: 8px;
-  color: white;
+  color: #fff
+}
+
+.tabs,
+header {
+  margin-bottom: 20px
 }
 
 .tabs {
   display: flex;
-  border-bottom: 1px solid #333;
-  margin-bottom: 20px;
+  border-bottom: 1px solid #333
 }
 
 .tab-button {
@@ -27,58 +31,56 @@
   color: #888;
   cursor: pointer;
   text-align: center;
-  border-bottom: 2px solid transparent;
+  border-bottom: 2px solid transparent
 }
 
 .tab-button.active {
-  color: white;
-  border-bottom: 2px solid white;
+  color: #fff;
+  border-bottom: 2px solid #fff
 }
 
 .tab-content {
-  display: none;
+  display: none
 }
 
 .tab-content.active {
-  display: block;
+  display: block
 }
 
 .notice {
   background-color: #333;
   padding: 20px;
   border-radius: 8px;
-  position: relative;
+  position: relative
 }
 
 .notice strong {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 10px
 }
 
 .icon {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: center
 }
 
 .link_row {
-  color: black;
+  color: #000
 }
 
 img {
-  margin: 0 auto;
+  margin: 0 auto
 }
 
 header {
-  background: #3C3C3C;
-
+  background: #3c3c3c;
   padding: 2rem 0 11rem;
-  text-align: center;
-  margin-bottom: 20px;
+  text-align: center
 }
 
 .bx-left-arrow-alt:before {
   content: "\eb33";
   margin-left: 20px;
-  color: white;
+  color: #fff
 }
