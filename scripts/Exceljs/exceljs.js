@@ -1,5 +1,5 @@
-const Exceljs = require('exceljs');
-const workbook = new Exceljs.Workbook();
+import { Workbook } from "exceljs";
+const workbook = new Workbook();
 const sheet = workbook.addWorksheet('teste');
 
 sheet.columns = [
