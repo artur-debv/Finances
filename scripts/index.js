@@ -1,4 +1,17 @@
 
+function toastError() {
+  const toast = document.getElementById('toast');
+
+  // Mostra o toast
+  toast.style.display = 'block';
+
+  // Esconde o toast após 3 segundos (ajuste conforme necessário)
+  setTimeout(() => {
+      toast.style.display = 'none';
+  }, 3000); // 3 segundos
+}
+
+
 const Modal = {
  
   open() {
@@ -248,7 +261,7 @@ const Form = {
       Modal.close(); 
     } catch (error) {
       console.log(error.message); 
-      // toastError(error.message); 
+      toastError(error.message); 
     }
   },
 };
