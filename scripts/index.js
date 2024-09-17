@@ -6,9 +6,7 @@ function toastError() {
   toast.style.display = 'block';
 
   // Esconde o toast após 3 segundos (ajuste conforme necessário)
-  setTimeout(() => {
-      toast.style.display = 'none';
-  }, 9000); // 3 segundos
+ 
 }
 
 
