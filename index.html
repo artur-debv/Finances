@@ -199,7 +199,8 @@
                 integrity="sha512-dlPw+ytv/6JyepmelABrgeYgHI0O+frEwgfnPdXDTOIZz+eDgfW07QXG02/O8COfivBdGNINy+Vex+lYmJ5rxw=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-           <!-- <script>
+            <script>
+                // Cria uma nova planilha do Excel
                 const workbook = new ExcelJS.Workbook();
                 const sheet = workbook.addWorksheet('Produtos');
                 sheet.columns = [
@@ -207,39 +208,49 @@
                     { header: 'Valor', key: 'valor' },
                     { header: 'Data', key: 'data' }
                 ];
-
+        
+                // Adiciona um produto à planilha e salva no sistema
                 document.querySelector(".button_submit").addEventListener("click", () => {
                     const description = document.querySelector("#description").value;
                     const amount = document.querySelector("#amount").value;
                     const date = document.querySelector("#date").value;
-
+        
                     if (!description || !amount || !date) {
                         alert("Por favor, preencha todos os campos antes de adicionar um produto.");
                         return;
                     }
-
+        
+                    // Adiciona o produto à planilha
                     sheet.addRow({
                         description: description,
                         valor: amount,
                         data: date
                     });
-
-                    console.log('Produto adicionado!');
+        
+                    console.log('Produto adicionado à planilha!');
+        
+                    // Limpa os campos de entrada
                     document.querySelector("#description").value = '';
                     document.querySelector("#amount").value = '';
                     document.querySelector("#date").value = '';
-
-                    updateGenerateButtonState();
+        
+                    // Salva no sistema (exemplo)
+                    saveToSystem({
+                        description: description,
+                        valor: amount,
+                        data: date
+                    });
                 });
-
-                document.querySelector(".button_generate").addEventListener("click", (event) => {
+        
+                // Exporta a planilha para Excel
+                document.querySelector("#exportToExcel").addEventListener("click", (event) => {
                     event.preventDefault(); // Previne o comportamento padrão do botão
-
+        
                     if (sheet.rowCount === 1) { // O header conta como uma linha
                         alert("Nenhum produto foi adicionado. Por favor, adicione produtos antes de gerar a planilha.");
                         return;
                     }
-
+        
                     workbook.xlsx.writeBuffer()
                         .then((buffer) => {
                             const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
@@ -253,12 +264,13 @@
                             console.error('Erro ao gerar o arquivo:', err);
                         });
                 });
-
-                function updateGenerateButtonState() {
-                    const buttonGenerate = document.querySelector(".button_generate");
-                    buttonGenerate.disabled = sheet.rowCount <= 1; // Desativa o botão se não houver produtos
+        
+                // Função para salvar no sistema (exemplo)
+                function saveToSystem(product) {
+                    // Substitua este código pela lógica real de salvamento no sistema
+                    console.log('Produto salvo no sistema:', product);
                 }
-            </script> -->
+            </script>
         </div>
     </main>
 </body>
