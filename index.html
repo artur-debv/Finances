@@ -199,7 +199,7 @@
                 integrity="sha512-dlPw+ytv/6JyepmelABrgeYgHI0O+frEwgfnPdXDTOIZz+eDgfW07QXG02/O8COfivBdGNINy+Vex+lYmJ5rxw=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-            <!--<script>
+            <script>
                 // Cria a planilha
                 const workbook = new ExcelJS.Workbook();
                 const sheet = workbook.addWorksheet('Produtos');
@@ -211,10 +211,8 @@
                     { header: 'Data', key: 'data' }
                 ];
 
-                let isWorkbookGenerated = false;
-
                 // Função para adicionar um produto
-                document.querySelector(".button_submit").addEventListener("click", () => {
+                document.querySelector(".button_add").addEventListener("click", () => {
                     const description = document.querySelector("#description").value;
                     const amount = document.querySelector("#amount").value;
                     const date = document.querySelector("#date").value;
@@ -232,20 +230,18 @@
                     });
 
                     console.log('Produto adicionado!');
-                    alert("Produto adicionado com sucesso!");
-
                     // Limpa os campos
                     document.querySelector("#description").value = '';
                     document.querySelector("#amount").value = '';
                     document.querySelector("#date").value = '';
+
+                    // Atualiza o estado do botão de gerar planilha
+                    updateGenerateButtonState();
                 });
 
                 // Função para gerar o arquivo Excel
-                document.querySelector(".button_generate").addEventListener("click", () => {
-                    if (isWorkbookGenerated) {
-                        alert("A planilha já foi gerada. Adicione mais produtos e baixe novamente se necessário.");
-                        return;
-                    }
+                document.querySelector(".button_generate").addEventListener("click", (event) => {
+                    event.preventDefault(); // Previne o comportamento padrão do botão, se estiver dentro de um formulário
 
                     // Verifica se há pelo menos uma linha de dados
                     if (sheet.rowCount === 1) { // O header conta como uma linha
@@ -262,16 +258,22 @@
                             link.download = 'produtos.xlsx';
                             link.click();
                             console.log('Planilha baixada com sucesso!');
-                            alert("Planilha baixada com sucesso!");
-                            isWorkbookGenerated = true;
                         })
                         .catch((err) => {
                             console.error('Erro ao gerar o arquivo:', err);
-                            alert("Erro ao gerar o arquivo. Por favor, tente novamente.");
                         });
                 });
-            </script>-->
 
+                // Função para atualizar o estado do botão de gerar planilha
+                function updateGenerateButtonState() {
+                    const buttonGenerate = document.querySelector(".button_generate");
+                    if (sheet.rowCount > 1) { // Mais de uma linha (contando o header)
+                        buttonGenerate.disabled = false;
+                    } else {
+                        buttonGenerate.disabled = true;
+                    }
+                }
+            </script>
         </div>
     </main>
 </body>

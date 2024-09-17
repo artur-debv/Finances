@@ -290,3 +290,8 @@ footer {
 .AddTask {
     display: none
 }
+
+.button_generate:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
