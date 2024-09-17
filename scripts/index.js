@@ -5,7 +5,7 @@ function toastError() {
 
   // Mostra o toast
   toast.style.visibility = 'inherit';
-  description.style.visibility = 'inherit';
+  description.style.overflow = 'visible';
 
   // Esconde o toast após 3 segundos (ajuste conforme necessário)
  
