@@ -199,7 +199,7 @@
                 integrity="sha512-dlPw+ytv/6JyepmelABrgeYgHI0O+frEwgfnPdXDTOIZz+eDgfW07QXG02/O8COfivBdGNINy+Vex+lYmJ5rxw=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-            <!--<script>
+            <script>
                 // Cria a planilha
                 const workbook = new ExcelJS.Workbook();
                 const sheet = workbook.addWorksheet('Produtos');
@@ -210,6 +210,8 @@
                     { header: 'Valor', key: 'valor' },
                     { header: 'Data', key: 'data' }
                 ];
+
+                let isWorkbookGenerated = false;
 
                 // Função para adicionar um produto
                 document.querySelector(".button_submit").addEventListener("click", () => {
@@ -222,7 +224,7 @@
                         return;
                     }
 
-                    // Adiciona o produto à planilha (mas não gera o arquivo ainda)
+                    // Adiciona o produto à planilha
                     sheet.addRow({
                         description: description,
                         valor: amount,
@@ -230,6 +232,8 @@
                     });
 
                     console.log('Produto adicionado!');
+                    alert("Produto adicionado com sucesso!");
+
                     // Limpa os campos
                     document.querySelector("#description").value = '';
                     document.querySelector("#amount").value = '';
@@ -238,6 +242,11 @@
 
                 // Função para gerar o arquivo Excel
                 document.querySelector(".button_generate").addEventListener("click", () => {
+                    if (isWorkbookGenerated) {
+                        alert("A planilha já foi gerada. Adicione mais produtos e baixe novamente se necessário.");
+                        return;
+                    }
+
                     // Verifica se há pelo menos uma linha de dados
                     if (sheet.rowCount === 1) { // O header conta como uma linha
                         alert("Nenhum produto foi adicionado. Por favor, adicione produtos antes de gerar a planilha.");
@@ -253,12 +262,16 @@
                             link.download = 'produtos.xlsx';
                             link.click();
                             console.log('Planilha baixada com sucesso!');
+                            alert("Planilha baixada com sucesso!");
+                            isWorkbookGenerated = true;
                         })
                         .catch((err) => {
                             console.error('Erro ao gerar o arquivo:', err);
+                            alert("Erro ao gerar o arquivo. Por favor, tente novamente.");
                         });
                 });
-            </script>--->
+            </script>
+
         </div>
     </main>
 </body>
