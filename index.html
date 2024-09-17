@@ -207,39 +207,39 @@
                     { header: 'Valor', key: 'valor' },
                     { header: 'Data', key: 'data' }
                 ];
-        
+            
                 document.querySelector(".button_add").addEventListener("click", () => {
                     const description = document.querySelector("#description").value;
                     const amount = document.querySelector("#amount").value;
                     const date = document.querySelector("#date").value;
-        
+            
                     if (!description || !amount || !date) {
                         alert("Por favor, preencha todos os campos antes de adicionar um produto.");
                         return;
                     }
-        
+            
                     sheet.addRow({
                         description: description,
                         valor: amount,
                         data: date
                     });
-        
+            
                     console.log('Produto adicionado!');
                     document.querySelector("#description").value = '';
                     document.querySelector("#amount").value = '';
                     document.querySelector("#date").value = '';
-        
+            
                     updateGenerateButtonState();
                 });
-        
+            
                 document.querySelector(".button_generate").addEventListener("click", (event) => {
                     event.preventDefault(); // Previne o comportamento padrão do botão
-        
+            
                     if (sheet.rowCount === 1) { // O header conta como uma linha
                         alert("Nenhum produto foi adicionado. Por favor, adicione produtos antes de gerar a planilha.");
                         return;
                     }
-        
+            
                     workbook.xlsx.writeBuffer()
                         .then((buffer) => {
                             const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
@@ -253,7 +253,7 @@
                             console.error('Erro ao gerar o arquivo:', err);
                         });
                 });
-        
+            
                 function updateGenerateButtonState() {
                     const buttonGenerate = document.querySelector(".button_generate");
                     buttonGenerate.disabled = sheet.rowCount <= 1; // Desativa o botão se não houver produtos
