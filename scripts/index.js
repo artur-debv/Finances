@@ -1,9 +1,11 @@
 
 function toastError() {
   const toast = document.getElementById('toast');
+  const description = document.querySelector('.description')
 
   // Mostra o toast
-  toast.style.display = 'block';
+  toast.style.visibility = 'inherit';
+  description.style.visibility = 'inherit';
 
   // Esconde o toast após 3 segundos (ajuste conforme necessário)
  
