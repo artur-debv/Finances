@@ -200,26 +200,38 @@
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
             <script>
-                document.querySelector("#exportToExcel").addEventListener("click", async (event) => {
-                    event.preventDefault(); // Previne o comportamento padrão do botão
-            
-                    // Captura as linhas da tabela
-                    const rows = document.querySelectorAll("#data-table tbody.tbodys tr");
-                    
-                    // Verifica se há produtos para exportar
-                    if (rows.length === 0) {
-                        alert("Não há produtos para exportar!");
-                        return;
-                    }
-            
-                    const workbook = new ExcelJS.Workbook();
-                    const sheet = workbook.addWorksheet('Produtos');
+                // Crie uma variável global para armazenar a planilha
+                let workbook;
+                let sheet;
+
+                // Inicialize a planilha quando o documento estiver pronto
+                document.addEventListener("DOMContentLoaded", () => {
+                    workbook = new ExcelJS.Workbook();
+                    sheet = workbook.addWorksheet('Produtos');
                     sheet.columns = [
                         { header: 'Descrição', key: 'description' },
                         { header: 'Valor', key: 'valor' },
                         { header: 'Data', key: 'data' }
                     ];
-            
+                });
+
+                document.querySelector("#exportToExcel").addEventListener("click", async (event) => {
+                    event.preventDefault(); // Previne o comportamento padrão do botão
+
+                    if (!workbook || !sheet) {
+                        alert("Erro: Planilha não inicializada.");
+                        return;
+                    }
+
+                    // Captura as linhas da tabela
+                    const rows = document.querySelectorAll("#data-table tbody.tbodys tr");
+
+                    // Verifica se há produtos para exportar
+                    if (rows.length === 0) {
+                        alert("Não há produtos para exportar!");
+                        return;
+                    }
+
                     // Adiciona cada linha da tabela à planilha
                     rows.forEach(row => {
                         const cells = row.querySelectorAll('td');
@@ -231,7 +243,7 @@
                             });
                         }
                     });
-            
+
                     try {
                         const buffer = await workbook.xlsx.writeBuffer();
                         const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
