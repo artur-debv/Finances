@@ -202,7 +202,8 @@
             <script>
                 document.querySelector("#exportToExcel").addEventListener("click", async (event) => {
                     event.preventDefault(); // Previne o comportamento padrão do botão
-
+        
+                    // Criar uma nova instância do ExcelJS Workbook toda vez que o botão for clicado
                     const workbook = new ExcelJS.Workbook();
                     const sheet = workbook.addWorksheet('Produtos');
                     sheet.columns = [
@@ -210,9 +211,14 @@
                         { header: 'Valor', key: 'valor' },
                         { header: 'Data', key: 'data' }
                     ];
-
+        
                     // Captura as linhas da tabela e adiciona à planilha
                     const rows = document.querySelectorAll("#productTable tbody tr");
+                    if (rows.length === 0) {
+                        alert("Não há produtos para exportar!");
+                        return;
+                    }
+        
                     rows.forEach(row => {
                         const cells = row.querySelectorAll('td');
                         sheet.addRow({
@@ -221,8 +227,9 @@
                             data: cells[2].textContent
                         });
                     });
-
+        
                     try {
+                        // Gera e baixa o arquivo Excel apenas uma vez
                         const buffer = await workbook.xlsx.writeBuffer();
                         const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
                         const link = document.createElement('a');
