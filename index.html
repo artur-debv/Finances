@@ -216,7 +216,7 @@
                         ];
 
                         // Captura as linhas dentro do tbody com a classe tbodys
-                        const rows = document.querySelectorAll(".tbodys");
+                        const rows = document.querySelectorAll("#data-table tbody.tbodys tr");
 
                         if (rows.length === 0) {
                             alert("Não há produtos para exportar!");
@@ -227,12 +227,22 @@
                         const dataToAdd = [];
                         rows.forEach(row => {
                             const cells = row.querySelectorAll('td');
-                            dataToAdd.push({
-                                description: cells[0].textContent,
-                                valor: cells[1].textContent,
-                                data: cells[2].textContent
-                            });
+                            // Verifica se há o número esperado de células
+                            if (cells.length >= 3) {
+                                dataToAdd.push({
+                                    description: cells[0].textContent.trim(),
+                                    valor: cells[1].textContent.trim(),
+                                    data: cells[2].textContent.trim()
+                                });
+                            } else {
+                                console.warn('Linha com número inesperado de células:', cells);
+                            }
                         });
+
+                        if (dataToAdd.length === 0) {
+                            alert("Não há dados válidos para exportar!");
+                            return;
+                        }
 
                         sheet.addRows(dataToAdd);
 
