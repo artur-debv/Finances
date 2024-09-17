@@ -165,6 +165,7 @@
                             <div class="input-group actions">
                                 <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
                                 <button class="button_submit" type="submit">Salvar</button>
+                                <button class="button_generate" type="submit">Gerar Planilha</button>
                             </div>
                         </form>
                     </div>
@@ -194,37 +195,64 @@
             <script src="https://apis.google.com/js/platform.js" async defer></script>
             <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
             <script src="/scripts/SidebarOpen/Sidebar.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js" integrity="sha512-dlPw+ytv/6JyepmelABrgeYgHI0O+frEwgfnPdXDTOIZz+eDgfW07QXG02/O8COfivBdGNINy+Vex+lYmJ5rxw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"
+                integrity="sha512-dlPw+ytv/6JyepmelABrgeYgHI0O+frEwgfnPdXDTOIZz+eDgfW07QXG02/O8COfivBdGNINy+Vex+lYmJ5rxw=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
             <script>
+                // Cria a planilha
                 const workbook = new ExcelJS.Workbook();
-                const sheet = workbook.addWorksheet('teste');
+                const sheet = workbook.addWorksheet('Produtos');
 
+                // Define as colunas da planilha
                 sheet.columns = [
-                    { header: 'description', key: 'description' },
-                    { header: 'valor', key: 'valor' },
-                    { header: 'data', key: 'data' }
+                    { header: 'Descrição', key: 'description' },
+                    { header: 'Valor', key: 'valor' },
+                    { header: 'Data', key: 'data' }
                 ];
 
+                // Função para adicionar um produto
                 document.querySelector(".button_submit").addEventListener("click", () => {
                     const description = document.querySelector("#description").value;
                     const amount = document.querySelector("#amount").value;
                     const date = document.querySelector("#date").value;
 
+                    if (!description || !amount || !date) {
+                        alert("Por favor, preencha todos os campos antes de adicionar um produto.");
+                        return;
+                    }
+
+                    // Adiciona o produto à planilha (mas não gera o arquivo ainda)
                     sheet.addRow({
                         description: description,
                         valor: amount,
                         data: date
                     });
 
+                    console.log('Produto adicionado!');
+                    // Limpa os campos
+                    document.querySelector("#description").value = '';
+                    document.querySelector("#amount").value = '';
+                    document.querySelector("#date").value = '';
+                });
+
+                // Função para gerar o arquivo Excel
+                document.querySelector(".button_generate").addEventListener("click", () => {
+                    // Verifica se há pelo menos uma linha de dados
+                    if (sheet.rowCount === 1) { // O header conta como uma linha
+                        alert("Nenhum produto foi adicionado. Por favor, adicione produtos antes de gerar a planilha.");
+                        return;
+                    }
+
+                    // Gera o arquivo Excel e baixa
                     workbook.xlsx.writeBuffer()
                         .then((buffer) => {
                             const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
                             const link = document.createElement('a');
                             link.href = URL.createObjectURL(blob);
-                            link.download = 'teste.xlsx';
+                            link.download = 'produtos.xlsx';
                             link.click();
-                            console.log('Arquivo baixado com sucesso!');
+                            console.log('Planilha baixada com sucesso!');
                         })
                         .catch((err) => {
                             console.error('Erro ao gerar o arquivo:', err);
