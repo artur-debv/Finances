@@ -261,7 +261,7 @@ const Form = {
       Modal.close(); 
     } catch (error) {
       console.log(error.message); 
-      toastError(error.message); 
+      toastError(); 
     }
   },
 };
