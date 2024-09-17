@@ -21,6 +21,6 @@
 
 @media (min-width:400px) {
     div#toast {
-        max-width: 50px
+        max-width: 23%;
     }
 }
