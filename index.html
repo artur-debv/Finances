@@ -200,56 +200,46 @@
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
             <script>
-                // Cria a planilha
                 const workbook = new ExcelJS.Workbook();
                 const sheet = workbook.addWorksheet('Produtos');
-
-                // Define as colunas da planilha
                 sheet.columns = [
                     { header: 'Descrição', key: 'description' },
                     { header: 'Valor', key: 'valor' },
                     { header: 'Data', key: 'data' }
                 ];
-
-                // Função para adicionar um produto
-                document.querySelector(".button_submit").addEventListener("click", () => {
+        
+                document.querySelector(".button_add").addEventListener("click", () => {
                     const description = document.querySelector("#description").value;
                     const amount = document.querySelector("#amount").value;
                     const date = document.querySelector("#date").value;
-
+        
                     if (!description || !amount || !date) {
                         alert("Por favor, preencha todos os campos antes de adicionar um produto.");
                         return;
                     }
-
-                    // Adiciona o produto à planilha
+        
                     sheet.addRow({
                         description: description,
                         valor: amount,
                         data: date
                     });
-
+        
                     console.log('Produto adicionado!');
-                    // Limpa os campos
                     document.querySelector("#description").value = '';
                     document.querySelector("#amount").value = '';
                     document.querySelector("#date").value = '';
-
-                    // Atualiza o estado do botão de gerar planilha
+        
                     updateGenerateButtonState();
                 });
-
-                // Função para gerar o arquivo Excel
+        
                 document.querySelector(".button_generate").addEventListener("click", (event) => {
-                    event.preventDefault(); // Previne o comportamento padrão do botão, se estiver dentro de um formulário
-
-                    // Verifica se há pelo menos uma linha de dados
+                    event.preventDefault(); // Previne o comportamento padrão do botão
+        
                     if (sheet.rowCount === 1) { // O header conta como uma linha
                         alert("Nenhum produto foi adicionado. Por favor, adicione produtos antes de gerar a planilha.");
                         return;
                     }
-
-                    // Gera o arquivo Excel e baixa
+        
                     workbook.xlsx.writeBuffer()
                         .then((buffer) => {
                             const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
@@ -263,15 +253,10 @@
                             console.error('Erro ao gerar o arquivo:', err);
                         });
                 });
-
-                // Função para atualizar o estado do botão de gerar planilha
+        
                 function updateGenerateButtonState() {
                     const buttonGenerate = document.querySelector(".button_generate");
-                    if (sheet.rowCount > 1) { // Mais de uma linha (contando o header)
-                        buttonGenerate.disabled = false;
-                    } else {
-                        buttonGenerate.disabled = true;
-                    }
+                    buttonGenerate.disabled = sheet.rowCount <= 1; // Desativa o botão se não houver produtos
                 }
             </script>
         </div>
