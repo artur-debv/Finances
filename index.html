@@ -202,7 +202,16 @@
             <script>
                 document.querySelector("#exportToExcel").addEventListener("click", async (event) => {
                     event.preventDefault(); // Previne o comportamento padrão do botão
-
+            
+                    // Captura as linhas da tabela
+                    const rows = document.querySelectorAll("#data-table tbody.tbodys tr");
+                    
+                    // Verifica se há produtos para exportar
+                    if (rows.length === 0) {
+                        alert("Não há produtos para exportar!");
+                        return;
+                    }
+            
                     const workbook = new ExcelJS.Workbook();
                     const sheet = workbook.addWorksheet('Produtos');
                     sheet.columns = [
@@ -210,24 +219,19 @@
                         { header: 'Valor', key: 'valor' },
                         { header: 'Data', key: 'data' }
                     ];
-
-                    // Captura as linhas da tabela e adiciona à planilha
-                    const rows = document.querySelectorAll(".tbodys");
+            
+                    // Adiciona cada linha da tabela à planilha
                     rows.forEach(row => {
                         const cells = row.querySelectorAll('td');
-                        sheet.addRow({
-                            description: cells[0].textContent,
-                            valor: cells[1].textContent,
-                            data: cells[2].textContent
-                        });
+                        if (cells.length >= 3) { // Certifica-se de que há pelo menos 3 células
+                            sheet.addRow({
+                                description: cells[0].textContent.trim(),
+                                valor: cells[1].textContent.trim(),
+                                data: cells[2].textContent.trim()
+                            });
+                        }
                     });
-
-
-                    if (rows.length === 0) {
-                        alert("Não há produtos para exportar!");
-                        return;
-                    }
-
+            
                     try {
                         const buffer = await workbook.xlsx.writeBuffer();
                         const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
@@ -238,6 +242,7 @@
                         console.log('Planilha baixada com sucesso!');
                     } catch (err) {
                         console.error('Erro ao gerar o arquivo:', err);
+                        alert("Erro ao gerar o arquivo. Por favor, tente novamente.");
                     }
                 });
             </script>
