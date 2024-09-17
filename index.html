@@ -202,43 +202,51 @@
             <script>
                 document.querySelector("#exportToExcel").addEventListener("click", async (event) => {
                     event.preventDefault(); // Previne o comportamento padrão do botão
-        
-                    // Criar uma nova instância do ExcelJS Workbook toda vez que o botão for clicado
-                    const workbook = new ExcelJS.Workbook();
-                    const sheet = workbook.addWorksheet('Produtos');
-                    sheet.columns = [
-                        { header: 'Descrição', key: 'description' },
-                        { header: 'Valor', key: 'valor' },
-                        { header: 'Data', key: 'data' }
-                    ];
-        
-                    // Captura as linhas da tabela e adiciona à planilha
-                    const rows = document.querySelectorAll("#data-table tbody.tbodys tr");
-                    if (rows.length === 0) {
-                        alert("Não há produtos para exportar!");
-                        return;
-                    }
-        
-                    rows.forEach(row => {
-                        const cells = row.querySelectorAll('td');
-                        sheet.addRow({
-                            description: cells[0].textContent,
-                            valor: cells[1].textContent,
-                            data: cells[2].textContent
-                        });
-                    });
-        
+
+                    const button = document.querySelector("#exportToExcel");
+                    button.disabled = true; // Desabilita o botão para prevenir múltiplos cliques
+
                     try {
-                        // Gera e baixa o arquivo Excel apenas uma vez
+                        const workbook = new ExcelJS.Workbook();
+                        const sheet = workbook.addWorksheet('Transações');
+                        sheet.columns = [
+                            { header: 'Descrição', key: 'description' },
+                            { header: 'Valor', key: 'valor' },
+                            { header: 'Data', key: 'data' }
+                        ];
+
+                        // Captura as linhas dentro do tbody com a classe tbodys
+                        const rows = document.querySelectorAll("#data-table tbody.tbodys tr");
+
+                        if (rows.length === 0) {
+                            alert("Não há produtos para exportar!");
+                            return;
+                        }
+
+                        // Adiciona todas as linhas coletadas à planilha
+                        const dataToAdd = [];
+                        rows.forEach(row => {
+                            const cells = row.querySelectorAll('td');
+                            dataToAdd.push({
+                                description: cells[0].textContent,
+                                valor: cells[1].textContent,
+                                data: cells[2].textContent
+                            });
+                        });
+
+                        sheet.addRows(dataToAdd);
+
                         const buffer = await workbook.xlsx.writeBuffer();
                         const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
                         const link = document.createElement('a');
                         link.href = URL.createObjectURL(blob);
-                        link.download = 'produtos.xlsx';
+                        link.download = 'transacoes.xlsx';
                         link.click();
                         console.log('Planilha baixada com sucesso!');
                     } catch (err) {
                         console.error('Erro ao gerar o arquivo:', err);
+                    } finally {
+                        button.disabled = false; // Reabilita o botão após a conclusão
                     }
                 });
             </script>
