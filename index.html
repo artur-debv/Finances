@@ -203,60 +203,35 @@
                 document.querySelector("#exportToExcel").addEventListener("click", async (event) => {
                     event.preventDefault(); // Previne o comportamento padrão do botão
 
-                    const button = document.querySelector("#exportToExcel");
-                    button.disabled = true; // Desabilita o botão para prevenir múltiplos cliques
+                    const workbook = new ExcelJS.Workbook();
+                    const sheet = workbook.addWorksheet('Produtos');
+                    sheet.columns = [
+                        { header: 'Descrição', key: 'description' },
+                        { header: 'Valor', key: 'valor' },
+                        { header: 'Data', key: 'data' }
+                    ];
+
+                    // Captura as linhas da tabela e adiciona à planilha
+                    const rows = document.querySelectorAll(".tbodys");
+                    rows.forEach(row => {
+                        const cells = row.querySelectorAll('td');
+                        sheet.addRow({
+                            description: cells[0].textContent,
+                            valor: cells[1].textContent,
+                            data: cells[2].textContent
+                        });
+                    });
 
                     try {
-                        const workbook = new ExcelJS.Workbook();
-                        const sheet = workbook.addWorksheet('Transações');
-                        sheet.columns = [
-                            { header: 'Descrição', key: 'description' },
-                            { header: 'Valor', key: 'valor' },
-                            { header: 'Data', key: 'data' }
-                        ];
-
-                        // Captura as linhas dentro do tbody com a classe tbodys
-                        const rows = document.querySelectorAll("#data-table tbody.tbodys tr");
-
-                        if (rows.length === 0) {
-                            alert("Não há produtos para exportar!");
-                            return;
-                        }
-
-                        // Adiciona todas as linhas coletadas à planilha
-                        const dataToAdd = [];
-                        rows.forEach(row => {
-                            const cells = row.querySelectorAll('td');
-                            // Verifica se há o número esperado de células
-                            if (cells.length >= 3) {
-                                dataToAdd.push({
-                                    description: cells[0].textContent.trim(),
-                                    valor: cells[1].textContent.trim(),
-                                    data: cells[2].textContent.trim()
-                                });
-                            } else {
-                                console.warn('Linha com número inesperado de células:', cells);
-                            }
-                        });
-
-                        if (dataToAdd.length === 0) {
-                            alert("Não há dados válidos para exportar!");
-                            return;
-                        }
-
-                        sheet.addRows(dataToAdd);
-
                         const buffer = await workbook.xlsx.writeBuffer();
                         const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
                         const link = document.createElement('a');
                         link.href = URL.createObjectURL(blob);
-                        link.download = 'transacoes.xlsx';
+                        link.download = 'produtos.xlsx';
                         link.click();
                         console.log('Planilha baixada com sucesso!');
                     } catch (err) {
                         console.error('Erro ao gerar o arquivo:', err);
-                    } finally {
-                        button.disabled = false; // Reabilita o botão após a conclusão
                     }
                 });
             </script>
