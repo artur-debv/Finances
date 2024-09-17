@@ -197,7 +197,6 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
             <script>
-
                 const workbook = new ExcelJS.Workbook();
                 const sheet = workbook.addWorksheet('teste');
 
@@ -218,12 +217,17 @@
                         data: date
                     });
 
-                    workbook.xlsx.writeFile('teste.xlsx')
-                        .then(() => {
-                            console.log('Arquivo salvo com sucesso!');
+                    workbook.xlsx.writeBuffer()
+                        .then((buffer) => {
+                            const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+                            const link = document.createElement('a');
+                            link.href = URL.createObjectURL(blob);
+                            link.download = 'teste.xlsx';
+                            link.click();
+                            console.log('Arquivo baixado com sucesso!');
                         })
                         .catch((err) => {
-                            console.error('Erro ao salvar o arquivo:', err);
+                            console.error('Erro ao gerar o arquivo:', err);
                         });
                 });
             </script>
