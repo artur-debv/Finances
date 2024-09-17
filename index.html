@@ -222,6 +222,12 @@
                         });
                     });
 
+
+                    if (rows.length === 0) {
+                        alert("Não há produtos para exportar!");
+                        return;
+                    }
+
                     try {
                         const buffer = await workbook.xlsx.writeBuffer();
                         const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
