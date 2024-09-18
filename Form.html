@@ -92,9 +92,6 @@
 
             const decodedToken = parseJwt(jwtToken);
 
-            // Salvar token no Supabase
-            await addUser(decodedToken.sub, jwtToken);
-
             // Redirecionar para a página index.html com informações como parâmetros de query string
             const queryString = "?name=" + encodeURIComponent(decodedToken.name) +
                 "&email=" + encodeURIComponent(decodedToken.email) +
