@@ -1,0 +1,7 @@
+@media (max-width:900px) {
+    div#toast {
+        max-width: 87%;
+        position: fixed;
+        padding-bottom: 26%;
+    }
+}
