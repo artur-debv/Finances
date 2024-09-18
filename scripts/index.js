@@ -8,69 +8,73 @@ function toastError() {
   description.style.overflow = 'visible';
 
   // Esconde o toast após 3 segundos (ajuste conforme necessário)
- 
+
+  setTimeout(() => {
+    toast.style.display = 'none';
+  }, 3000); // 3 segundos
+
 }
 
 
 const Modal = {
- 
+
   open() {
-    document.querySelector(".modal-overlay").classList.add("active"); 
+    document.querySelector(".modal-overlay").classList.add("active");
   },
   close() {
-    document.querySelector(".modal-overlay").classList.remove("active"); 
+    document.querySelector(".modal-overlay").classList.remove("active");
   },
 };
 
 const CardColor = {
- 
+
   positive() {
-    document.querySelector(".card.total").classList.remove("negative"); 
-    document.querySelector(".card.total").classList.add("positive"); 
+    document.querySelector(".card.total").classList.remove("negative");
+    document.querySelector(".card.total").classList.add("positive");
   },
   negative() {
-    document.querySelector(".card.total").classList.remove("positive"); 
-    document.querySelector(".card.total").classList.add("negative"); 
+    document.querySelector(".card.total").classList.remove("positive");
+    document.querySelector(".card.total").classList.add("negative");
   },
 };
 
 const Storage = {
 
   get() {
-    return JSON.parse(localStorage.getItem("dev.finances:transactions")) || []; 
+    return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [];
   },
   set(transactions) {
     localStorage.setItem(
       "dev.finances:transactions",
       JSON.stringify(transactions)
-    ); 
+    );
   },
 };
 
 const Transaction = {
   all: Storage.get(),
   add(transaction) {
-    this.all.push(transaction); 
-    App.reload(); 
+    this.all.push(transaction);
+    App.reload();
   },
   remove(index) {
-    Transaction.all.splice(index, 1); 
+    Transaction.all.splice(index, 1);
 
-    App.reload(); 
+    App.reload();
   },
   incomes() {
-    
+
     let income = 0;
 
     Transaction.all.forEach((transaction) => {
       if (transaction.amount > 0) {
-        income += transaction.amount; 
+        income += transaction.amount;
       }
     });
-    return income; 
+    return income;
   },
   expenses() {
-    
+
     let expense = 0;
 
     Transaction.all.forEach((transaction) => {
@@ -78,30 +82,30 @@ const Transaction = {
         expense += transaction.amount;
       }
     });
-    return expense; 
+    return expense;
   },
   total() {
-    
-    return Transaction.incomes() + Transaction.expenses(); 
+
+    return Transaction.incomes() + Transaction.expenses();
   },
 };
 
 const DOM = {
-  transactionsContainer: document.querySelector("#data-table tbody"), 
+  transactionsContainer: document.querySelector("#data-table tbody"),
 
   addTransaction(transactions, index) {
-   
-    const tr = document.createElement("tr"); 
-    tr.innerHTML = DOM.innerHTMLTransaction(transactions, index); 
-    tr.dataset.index = index; 
 
-    DOM.transactionsContainer.prepend(tr); 
+    const tr = document.createElement("tr");
+    tr.innerHTML = DOM.innerHTMLTransaction(transactions, index);
+    tr.dataset.index = index;
+
+    DOM.transactionsContainer.prepend(tr);
   },
 
   innerHTMLTransaction(transactions, index) {
-   
+
     const CSSclass = transactions.amount > 0 ? "income" : "expense";
-    const amount = Utils.formatCurrency(transactions.amount); 
+    const amount = Utils.formatCurrency(transactions.amount);
     const html = `
         <td class="description">${transactions.description}</td>
         <td class="${CSSclass}">${amount}</td>
@@ -110,87 +114,87 @@ const DOM = {
             <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" class="remove" alt="Remover Transação">
         </td>
         `;
-    return html; 
+    return html;
   },
 
   updateBalance() {
-    
+
     document.querySelector("#incomeDisplay").innerHTML = Utils.formatCurrency(
       Transaction.incomes()
-    ); 
+    );
     document.querySelector("#expenseDisplay").innerHTML = Utils.formatCurrency(
       Transaction.expenses()
-    ); 
+    );
     document.querySelector("#totalDisplay").innerHTML = Utils.formatCurrency(
       Transaction.total()
-    ); 
+    );
   },
 
   totalCardColor() {
-  
+
     if (Transaction.total() < 0) {
-   
+
       console.info(
         "Seu Valor Total Esta Negativo: " +
         Utils.formatSimple(Transaction.total())
-      ); 
-      CardColor.negative(); 
+      );
+      CardColor.negative();
     } else {
-      
+
       console.info(
         "Seu Valor Total Esta Positivo: " +
         Utils.formatSimple(Transaction.total())
       );
-      CardColor.positive(); 
+      CardColor.positive();
     }
   },
 
   clearTransactions() {
-   
-    DOM.transactionsContainer.innerHTML = ""; 
+
+    DOM.transactionsContainer.innerHTML = "";
   },
 };
 
 const Utils = {
-  
-  formatCurrency(value) {
-    
-    const signal = Number(value) < 0 ? "-&nbsp;" : "+&nbsp;"; 
 
-    value = String(value).replace(/\D/g, ""); 
-    value = Number(value) / 100; 
+  formatCurrency(value) {
+
+    const signal = Number(value) < 0 ? "-&nbsp;" : "+&nbsp;";
+
+    value = String(value).replace(/\D/g, "");
+    value = Number(value) / 100;
     value = value.toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
-    }); 
+    });
 
-    return signal + value; 
+    return signal + value;
   },
 
   formatAmount(value) {
-  
-    value = value * 100; 
-    return Math.round(value); 
+
+    value = value * 100;
+    return Math.round(value);
   },
 
   formatSimple(value) {
-    
-    const signal = Number(value) < 0 ? "- " : "+ "; 
 
-    value = String(value).replace(/\D/g, ""); 
-    value = Number(value) / 100; 
+    const signal = Number(value) < 0 ? "- " : "+ ";
+
+    value = String(value).replace(/\D/g, "");
+    value = Number(value) / 100;
     value = value.toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
-    }); 
+    });
 
-    return signal + value; 
+    return signal + value;
   },
 
   formatDate(date) {
-    
+
     const splittedDate = date.split("-");
-    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`; 
+    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;
   },
 };
 
@@ -201,24 +205,24 @@ const Form = {
   date: document.querySelector("input#date"),
 
   getValues() {
-  
+
     return {
       description: Form.description.value,
       amount: Form.amount.value,
       date: Form.date.value,
-    }; 
+    };
   },
 
   validateFields() {
-    
-    const { description, amount, date } = Form.getValues(); 
+
+    const { description, amount, date } = Form.getValues();
 
     if (
       description.trim() === "" ||
       amount.trim() === "" ||
       date.trim() === ""
     ) {
-     
+
       throw new Error("Por favor, preencha todos os campos!");
     }
   },
@@ -238,7 +242,7 @@ const Form = {
   },
 
   saveTransaction(transaction) {
-   
+
     Transaction.add(transaction);
   },
 
@@ -250,36 +254,36 @@ const Form = {
   },
 
   submit(event) {
-    
-    event.preventDefault(); 
-    try {
-      Form.validateFields(); 
-      const transaction = Form.formatValues(); 
-      Form.saveTransaction(transaction); 
-      Form.clearFields(); 
 
-      Modal.close(); 
+    event.preventDefault();
+    try {
+      Form.validateFields();
+      const transaction = Form.formatValues();
+      Form.saveTransaction(transaction);
+      Form.clearFields();
+
+      Modal.close();
     } catch (error) {
-      console.log(error.message); 
-      toastError(); 
+      console.log(error.message);
+      toastError();
     }
   },
 };
 
 const App = {
-  
+
   init() {
-    Transaction.all.forEach(DOM.addTransaction); 
-    DOM.updateBalance(); 
-    DOM.totalCardColor(); 
+    Transaction.all.forEach(DOM.addTransaction);
+    DOM.updateBalance();
+    DOM.totalCardColor();
 
     Storage.set(Transaction.all);
   },
 
   reload() {
-   
-    DOM.clearTransactions(); 
-    App.init(); 
+
+    DOM.clearTransactions();
+    App.init();
   },
 };
 
@@ -293,16 +297,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
       bodypd = document.getElementById(bodyId),
       headerpd = document.getElementById(headerId)
 
-   
+
     if (toggle && nav && bodypd && headerpd) {
       toggle.addEventListener('click', () => {
-       
+
         nav.classList.toggle('show')
-       
+
         toggle.classList.toggle('bx-x')
-      
+
         bodypd.classList.toggle('body-pd')
-        
+
         headerpd.classList.toggle('body-pd')
       })
     }
@@ -310,7 +314,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
 
-  
+
   const linkColor = document.querySelectorAll('.nav_link')
 
   function colorLink() {
@@ -321,5 +325,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
   linkColor.forEach(l => l.addEventListener('click', colorLink))
 
-  
+
 });
