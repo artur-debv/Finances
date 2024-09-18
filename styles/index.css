@@ -281,8 +281,8 @@ footer {
     color: #000
 }
 
-.select #user_infos span:last-child{
-    color: black;
+ #user_infos span:last-child{
+    color: white;
 }
 
 .icons_account {
