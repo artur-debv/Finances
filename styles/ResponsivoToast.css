@@ -4,4 +4,7 @@
         position: fixed;
         padding-bottom: 50%;
     }
+    #toast{
+       background: none;
+    }
 }
