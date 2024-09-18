@@ -113,7 +113,7 @@ const Utils = {
 
 const Form = {
     tipoInvestimento: document.querySelector("select#tipoInvestimento"),
-    investmentValue:  document.querySelector(".investmentValue"),
+    investmentValue:  document.querySelector("input#InvesmentValue"),
     date: document.querySelector("input#date"),
     amount: document.querySelector("input#amount"),
     getValues() {
