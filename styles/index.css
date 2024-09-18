@@ -281,9 +281,11 @@ footer {
     color: #000
 }
 
- #user_infos span:last-child{
+.dark #user_infos span:last-child{
     color: white;
 }
+
+
 
 .icons_account {
     display: flex;
