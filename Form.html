@@ -85,50 +85,7 @@
     </div>
     <script src="https://accounts.google.com/gsi/client" async></script>
     <script type="module">
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/+esm';
-
-        const supabaseUrl = 'https://wvnovbubeajokzignabi.supabase.co';
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2bm92YnViZWFqb2t6aWduYWJpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE3Mzc0MzcsImV4cCI6MjA3MzEzNDM3fQ.zv5JXOAoTR6ivRcycWx6eOtV7uLLqIuxjQZX9jjMwvM';
-        const supabase = createClient(supabaseUrl, supabaseKey);
-
-        async function addUser(user_id, Token) {
-            try {
-                const { data, error } = await supabase
-                    .from('users')
-                    .insert([{ user_id, Token }]);
-
-                if (error) {
-                    console.error('Erro ao inserir dados:', error);
-                    document.getElementById('output').textContent = `Erro ao inserir dados: ${error.message}`;
-                } else {
-                    console.log('Dados inseridos:', data);
-                    document.getElementById('output').textContent = 'Dados inseridos com sucesso';
-                }
-            } catch (error) {
-                console.error('Erro ao conectar ao Supabase:', error);
-                document.getElementById('output').textContent = `Erro ao conectar ao Supabase: ${error.message}`;
-            }
-        }
-
-        async function testConnection() {
-            try {
-                const { data, error } = await supabase
-                    .from('users')
-                    .select('*');
-
-                if (error) {
-                    console.error('Erro ao buscar dados:', error);
-                    document.getElementById('output').textContent = `Erro ao buscar dados: ${error.message}`;
-                } else {
-                    console.log('Dados recebidos:', data);
-                    document.getElementById('output').textContent = `Dados recebidos: ${JSON.stringify(data, null, 2)}`;
-                }
-            } catch (error) {
-                console.error('Erro ao conectar ao Supabase:', error);
-                document.getElementById('output').textContent = `Erro ao conectar ao Supabase: ${error.message}`;
-            }
-        }
-
+       
         async function handleCredentialResponse(response) {
             const jwtToken = response.credential;
             localStorage.setItem('jwtToken', jwtToken);
