@@ -1,16 +1,18 @@
 function search() {
-    const buttonSearch = document.getElementById('button_search');
+    const inputSearch = document.getElementById('input_Search');
 
-    buttonSearch.addEventListener('click', function () {
-        const searchText = document.getElementById('input_Search').value.trim().toLowerCase();
-        const transactions = document.querySelectorAll('.tbodys tr');
-        console.log(transactions)
+    // Escutando o evento de digitação no input
+    inputSearch.addEventListener('input', function () {
+        const searchText = inputSearch.value.trim().toLowerCase();  // Pega o texto digitado e converte para minúsculo
+        const transactions = document.querySelectorAll('.tbodys tr');  // Seleciona todas as linhas da tabela
 
+        // Itera sobre cada transação (linha da tabela)
         transactions.forEach(function (transaction) {
             const transactionDescription = transaction.querySelector('td:nth-child(1)').textContent.toLowerCase();
             const transactionValue = transaction.querySelector('td:nth-child(2)').textContent.toLowerCase();
             const transactionDate = transaction.querySelector('td:nth-child(3)').textContent.toLowerCase();
 
+            // Verifica se algum dos campos inclui o texto digitado
             if (transactionDescription.includes(searchText) ||
                 transactionValue.includes(searchText) ||
                 transactionDate.includes(searchText)) {
