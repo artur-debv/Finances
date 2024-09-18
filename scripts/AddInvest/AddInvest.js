@@ -66,6 +66,7 @@ const DOM = {
     innerHTMLTransaction(transaction, index) {
         const html = `
           <td class="tipoInvestimento">${transaction.tipoInvestimento}</td>
+          <td class="investmentValue">${transaction.investmentValue}
           <td class="date">${transaction.date}</td>
           <td>
               <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" class="remove" alt="Remover Transação">
@@ -112,32 +113,35 @@ const Utils = {
 
 const Form = {
     tipoInvestimento: document.querySelector("select#tipoInvestimento"),
+    investmentValue:  document.querySelector(".investmentValue"),
     date: document.querySelector("input#date"),
     amount: document.querySelector("input#amount"),
     getValues() {
         return {
             tipoInvestimento: this.tipoInvestimento.value,
+            investmentValue : this.investmentValue.value,
             date: this.date.value,
             amount: this.amount.value
         };
     },
     validateFields() {
-        const { amount, tipoInvestimento, date } = this.getValues();
-        if (tipoInvestimento.trim() === "" || date.trim() === "" || amount.trim() === "") {
+        const { amount, tipoInvestimento, date, investmentValue } = this.getValues();
+        if (tipoInvestimento.trim() === "" || date.trim() === "" || amount.trim() === "" || investmentValue.trim() === "" ) {
             throw new Error("Por favor, preencha todos os campos!");
         }
     },
     formatValues() {
-        let { amount, tipoInvestimento, date } = this.getValues();
+        let { amount, tipoInvestimento, date, investmentValue } = this.getValues();
         date = Utils.formatDate(date);
         amount = Utils.formatAmount(amount);
-        return { amount, tipoInvestimento, date };
+        return { amount, tipoInvestimento, date, investmentValue };
     },
     saveTransaction(transaction) {
         Transaction.add(transaction);
     },
     clearFields() {
         this.tipoInvestimento.value = "";
+        this.investmentValue.value = "";
         this.date.value = "";
         this.amount.value = "";
     },
