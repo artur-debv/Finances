@@ -125,25 +125,9 @@ main {
     background-color: rgb(26 24 24)
 }
 
-#open_btn {
-    position: absolute;
-    top: 30px;
-    right: -10px;
-    background-color: #000;
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
-    border: none;
-    cursor: pointer
-}
 
-#open_btn_icon {
-    transition: transform .3s
-}
 
-.open-sidebar #open_btn_icon {
-    transform: rotate(180deg)
-}
+
 
 .item-description {
     width: 0;
