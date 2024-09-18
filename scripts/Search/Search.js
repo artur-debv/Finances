@@ -4,6 +4,10 @@ function search() {
     // Escutando o evento de digitação no input
     inputSearch.addEventListener('input', function () {
         const searchText = inputSearch.value
+        
+
+        console.log('o texto digitado é',searchText)
+
         const transactions = document.querySelectorAll('.tbodys tr');  // Seleciona todas as linhas da tabela
 
         // Itera sobre cada transação (linha da tabela)
