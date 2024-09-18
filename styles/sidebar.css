@@ -61,12 +61,11 @@ main {
 }
 
 #user_infos {
-    display: flex
+    display: none;
 }
 
 #user_infos span:last-child {
-    color: #6b6b6b;
-    font-size: 14px
+    color: white ;
 }
 
 #side_items {
