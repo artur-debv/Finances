@@ -282,11 +282,11 @@ footer {
 }
 
 .dark #user_infos span:last-child{
-    color: white;
+    color: black;
 }
 
 .select #user_infos span:last-child{
-    color: black;
+    color: white;
 }
 
 
