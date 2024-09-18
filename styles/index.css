@@ -281,6 +281,10 @@ footer {
     color: #000
 }
 
+.select #user_infos span:last-child{
+    color: black;
+}
+
 .icons_account {
     display: flex;
     align-items: center;
