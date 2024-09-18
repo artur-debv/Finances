@@ -134,7 +134,6 @@ main {
     text-overflow: ellipsis;
     font-size: 14px;
     transition: width .6s;
-    height: 0
 }
 
 #sidebar.open-sidebar .item-description {
