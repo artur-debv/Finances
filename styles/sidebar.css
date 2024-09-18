@@ -61,7 +61,7 @@ main {
 }
 
 #user_infos {
-   
+   display: block;
 }
 
 #user_infos span:last-child {
