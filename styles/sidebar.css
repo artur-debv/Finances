@@ -139,7 +139,7 @@ main {
 #sidebar.open-sidebar .item-description {
     width: 150px;
     height: auto;
-    color: white;
+    color: black;
 }
 
 #sidebar.open-sidebar .side-item a {
