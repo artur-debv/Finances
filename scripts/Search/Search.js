@@ -1,5 +1,5 @@
 
-import toastError from "../index.js";
+
 
 function search() {
     const inputSearch = document.getElementById('input_Search'); // Seleciona o campo de input
@@ -21,7 +21,7 @@ function search() {
                 transactionDate.includes(searchText)) {
                 transaction.style.display = ''; // Mostra a linha se houver correspondência
             } else {
-               toastError();
+               alert("Nenhum resultado encontrado");
             }
         });
     });
