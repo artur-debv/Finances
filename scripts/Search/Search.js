@@ -18,7 +18,6 @@ function search() {
                 transactionDate.includes(searchText)) {
                 transaction.style.display = ''; // Mostra a linha se houver correspondência
             } else {
-                alert("Nenhum resultado encontrado");
                 transaction.style.display = 'none'; // Esconde a linha se não houver correspondência
             }
         });
