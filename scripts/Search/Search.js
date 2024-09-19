@@ -1,6 +1,3 @@
-
-
-
 function search() {
     const inputSearch = document.getElementById('input_Search'); // Seleciona o campo de input
 
@@ -21,7 +18,8 @@ function search() {
                 transactionDate.includes(searchText)) {
                 transaction.style.display = ''; // Mostra a linha se houver correspondência
             } else {
-               alert("Nenhum resultado encontrado");
+                alert("Nenhum resultado encontrado");
+                transaction.style.display = 'none'; // Esconde a linha se não houver correspondência
             }
         });
     });
